@@ -1,38 +1,40 @@
-<?php /* Smarty version Smarty3rc4, created on 2014-10-18 01:11:01
+<?php /* Smarty version Smarty3rc4, created on 2014-10-19 01:24:47
          compiled from "W:\home\cp.test.ru\www\ts3wi\templates/bootstrap/serverview.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:16636544185e53edb82-68141114%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:271205442da9f393ac0-45648029%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '32544f345da2e858719f6bf1d6c357ba168af494' => 
     array (
       0 => 'W:\\home\\cp.test.ru\\www\\ts3wi\\templates/bootstrap/serverview.tpl',
-      1 => 1413580258,
+      1 => 1413667408,
     ),
   ),
-  'nocache_hash' => '16636544185e53edb82-68141114',
+  'nocache_hash' => '271205442da9f393ac0-45648029',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
 )); /*/%%SmartyHeaderCode%%*/?>
 <?php if (!is_callable('smarty_modifier_date_format')) include 'W:\home\cp.test.ru\www\ts3wi\libs\Smarty\libs\plugins\modifier.date_format.php';
-?><?php if (!empty($_smarty_tpl->getVariable('error')->value)||!empty($_smarty_tpl->getVariable('noerror')->value)){?>
-<table xmlns="http://www.w3.org/1999/html">
-	<?php if (!empty($_smarty_tpl->getVariable('error')->value)){?>
-	<tr>
-		<td class="error"><?php echo $_smarty_tpl->getVariable('error')->value;?>
-</td>
-	</tr>
-	<?php }?>
-	<?php if (!empty($_smarty_tpl->getVariable('noerror')->value)){?>
-	<tr>
-		<td class="noerror"><?php echo $_smarty_tpl->getVariable('noerror')->value;?>
-</td>
-	</tr>
-	<?php }?>
-</table>
+?>
+<?php if (!empty($_smarty_tpl->getVariable('error')->value)||!empty($_smarty_tpl->getVariable('noerror')->value)){?>
+    <div class="container container-alert">
+        <?php if (!empty($_smarty_tpl->getVariable('error')->value)){?>
+            <div class="alert alert-dismissable alert-warning">
+                <h4><b>Warning! </b></h4><?php echo $_smarty_tpl->getVariable('error')->value;?>
+
+            </div>
+        <?php }?>
+        <?php if (!empty($_smarty_tpl->getVariable('noerror')->value)){?>
+            <div class="alert alert-dismissable alert-success">
+                <?php echo $_smarty_tpl->getVariable('noerror')->value;?>
+
+            </div>
+        <?php }?>
+    </div>
 <?php }?>
+
 
 
 <?php if ($_smarty_tpl->getVariable('newserverversion')->value!==true&&!empty($_smarty_tpl->getVariable('serverinfo')->value['virtualserver_version'])){?>
@@ -46,63 +48,46 @@ $_smarty_tpl->decodeProperties(array (
 <?php }?>
 <br>
 <div class="container">
-    <div class="jumbotron" style="text-align: center">
-    <div class="row">
-        <div class="col-md-4">
-            <h3><?php echo $_smarty_tpl->getVariable('lang')->value['slotusage'];?>
-</h3>
-            <div class="progress" style="height: 50px">
-                <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" style="width: <?php echo ($_smarty_tpl->getVariable('serverinfo')->value['virtualserver_clientsonline']-$_smarty_tpl->getVariable('serverinfo')->value['virtualserver_queryclientsonline'])/$_smarty_tpl->getVariable('serverinfo')->value['virtualserver_maxclients']*100;?>
-%;">
-                    <span class="sr-only"><?php echo $_smarty_tpl->getVariable('serverinfo')->value['virtualserver_clientsonline']-$_smarty_tpl->getVariable('serverinfo')->value['virtualserver_queryclientsonline'];?>
- / <?php echo $_smarty_tpl->getVariable('serverinfo')->value['virtualserver_maxclients'];?>
-</span>
-                </div>
-            </div>
-            <span class="sr-only"><hr></span>
-        </div>
-        <div class="col-md-4">
-            <h3><?php echo $_smarty_tpl->getVariable('lang')->value['status'];?>
-</h3>
-            <?php if ($_smarty_tpl->getVariable('serverinfo')->value['virtualserver_status']=="online"){?>
-                <button type="button" class="btn btn-success btn-block disabled"><?php echo $_smarty_tpl->getVariable('serverinfo')->value['virtualserver_status'];?>
-</button>
-                <?php }else{ ?>
-                <button type="button" class="btn btn-danger btn-block disabled"><?php echo $_smarty_tpl->getVariable('serverinfo')->value['virtualserver_status'];?>
-</button>
-            <?php }?>
-            <span class="sr-only"><hr></span>
-        </div>
-        <div class="col-md-4">
-            <h3><?php echo $_smarty_tpl->getVariable('lang')->value['serverid'];?>
-</h3>
-            <h2><b><?php echo $_smarty_tpl->getVariable('serverinfo')->value['virtualserver_id'];?>
-</b</h2>
-            <span class="sr-only"><hr></span>
-        </div>
-    </div>
-    </div>
     <div class="row">
     <div class="col-md-4">
         <div class="text-center">
-
             <form method="post" action="index.php?site=serverview&amp;sid=<?php echo $_smarty_tpl->getVariable('sid')->value;?>
 ">
                 <input type="hidden" name="sid" value="<?php echo $_smarty_tpl->getVariable('serverinfo')->value['virtualserver_id'];?>
 " />
                 <div class="btn-group" style="width: 80%">
-                <button type="submit" style="margin-bottom: 5px; width: 50%" name="start" class="start btn btn-success"><span class="glyphicon glyphicon-play"></span> <?php echo $_smarty_tpl->getVariable('lang')->value['start'];?>
+                <button type="submit" style="margin-bottom: 5px; width: 50%; height: 50px" name="start" class="start btn btn-success"><?php echo $_smarty_tpl->getVariable('lang')->value['start'];?>
 </button>
-                <button type="submit" style="margin-bottom: 5px; width: 50%" type="submit" name="stop" class="stop btn btn-danger" onclick="return confirm('<?php echo $_smarty_tpl->getVariable('lang')->value['stopservermsg'];?>
-')"><span class="glyphicon glyphicon-stop"></span> <?php echo $_smarty_tpl->getVariable('lang')->value['stop'];?>
+                <button type="submit" style="margin-bottom: 5px; width: 50%; height: 50px" name="stop" class="stop btn btn-danger" onclick="return confirm('<?php echo $_smarty_tpl->getVariable('lang')->value['stopservermsg'];?>
+')"><?php echo $_smarty_tpl->getVariable('lang')->value['stop'];?>
 </button>
                 </div>
             </form>
-
         </div>
-        <a href="#msgtosrv" data-toggle="modal" type="button" style="margin-bottom: 20px; width: 80%;" class="btn btn-warning btn-block center-block"><span class="glyphicon glyphicon-envelope"></span>  <?php echo $_smarty_tpl->getVariable('lang')->value['msgtosrvmenu'];?>
+        <a href="#msgtosrv" data-toggle="modal" type="button" style="margin-bottom: 20px; width: 80%" class="btn btn-warning btn-block center-block"><span class="glyphicon glyphicon-envelope"></span>  <?php echo $_smarty_tpl->getVariable('lang')->value['msgtosrvmenu'];?>
 </a>
-            <div class="well">
+        <h5><?php echo $_smarty_tpl->getVariable('lang')->value['status'];?>
+</h5>
+        <?php if ($_smarty_tpl->getVariable('serverinfo')->value['virtualserver_status']=="online"){?>
+            <button type="button" class="btn btn-success btn-block disabled"><?php echo $_smarty_tpl->getVariable('serverinfo')->value['virtualserver_status'];?>
+</button>
+        <?php }else{ ?>
+            <button type="button" class="btn btn-danger btn-block disabled"><?php echo $_smarty_tpl->getVariable('serverinfo')->value['virtualserver_status'];?>
+</button>
+        <?php }?>
+        <span class="sr-only"><hr></span>
+        <h5><?php echo $_smarty_tpl->getVariable('lang')->value['slotusage'];?>
+</h5>
+        <div class="progress" style="height: 30px">
+            <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" style="width: <?php echo ($_smarty_tpl->getVariable('serverinfo')->value['virtualserver_clientsonline']-$_smarty_tpl->getVariable('serverinfo')->value['virtualserver_queryclientsonline'])/$_smarty_tpl->getVariable('serverinfo')->value['virtualserver_maxclients']*100;?>
+%;">
+                <span class="sr-only"><?php echo $_smarty_tpl->getVariable('serverinfo')->value['virtualserver_clientsonline']-$_smarty_tpl->getVariable('serverinfo')->value['virtualserver_queryclientsonline'];?>
+ / <?php echo $_smarty_tpl->getVariable('serverinfo')->value['virtualserver_maxclients'];?>
+</span>
+            </div>
+        </div>
+        <span class="sr-only"><hr></span>
+        <div class="well">
             <a href="#" type="button" style="margin-bottom: 10px" class="disabled btn btn-sm btn-default btn-block"><?php echo $_smarty_tpl->getVariable('lang')->value['connectvserver'];?>
 </a>
             <<?php ?>?php } ?<?php ?>>

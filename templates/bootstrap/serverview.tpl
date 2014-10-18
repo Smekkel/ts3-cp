@@ -1,4 +1,4 @@
-{if !empty($error) OR !empty($noerror)}
+{* {if !empty($error) OR !empty($noerror)}
 <table xmlns="http://www.w3.org/1999/html">
 	{if !empty($error)}
 	<tr>
@@ -12,6 +12,22 @@
 	{/if}
 </table>
 {/if}
+*}
+{if !empty($error) OR !empty($noerror)}
+    <div class="container container-alert">
+        {if !empty($error)}
+            <div class="alert alert-dismissable alert-warning">
+                <h4><b>Warning! </b></h4>{$error}
+            </div>
+        {/if}
+        {if !empty($noerror)}
+            <div class="alert alert-dismissable alert-success">
+                {$noerror}
+            </div>
+        {/if}
+    </div>
+{/if}
+
 
 
 {if $newserverversion !== true AND !empty($serverinfo['virtualserver_version'])}
@@ -22,48 +38,36 @@
 {/if}
 <br>
 <div class="container">
-    <div class="jumbotron" style="text-align: center">
-    <div class="row">
-        <div class="col-md-4">
-            <h3>{$lang['slotusage']}</h3>
-            <div class="progress" style="height: 50px">
-                <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" style="width: {($serverinfo['virtualserver_clientsonline']-$serverinfo['virtualserver_queryclientsonline'])/$serverinfo['virtualserver_maxclients']*100}%;">
-                    <span class="sr-only">{$serverinfo['virtualserver_clientsonline']-$serverinfo['virtualserver_queryclientsonline']} / {$serverinfo['virtualserver_maxclients']}</span>
-                </div>
-            </div>
-            <span class="sr-only"><hr></span>
-        </div>
-        <div class="col-md-4">
-            <h3>{$lang['status']}</h3>
-            {if $serverinfo['virtualserver_status'] == "online"}
-                <button type="button" class="btn btn-success btn-block disabled">{$serverinfo['virtualserver_status']}</button>
-                {else}
-                <button type="button" class="btn btn-danger btn-block disabled">{$serverinfo['virtualserver_status']}</button>
-            {/if}
-            <span class="sr-only"><hr></span>
-        </div>
-        <div class="col-md-4">
-            <h3>{$lang['serverid']}</h3>
-            <h2><b>{$serverinfo['virtualserver_id']}</b</h2>
-            <span class="sr-only"><hr></span>
-        </div>
-    </div>
-    </div>
     <div class="row">
     <div class="col-md-4">
+        {* Control buttons *}
         <div class="text-center">
-
             <form method="post" action="index.php?site=serverview&amp;sid={$sid}">
                 <input type="hidden" name="sid" value="{$serverinfo['virtualserver_id']}" />
                 <div class="btn-group" style="width: 80%">
-                <button type="submit" style="margin-bottom: 5px; width: 50%" name="start" class="start btn btn-success"><span class="glyphicon glyphicon-play"></span> {$lang['start']}</button>
-                <button type="submit" style="margin-bottom: 5px; width: 50%" type="submit" name="stop" class="stop btn btn-danger" onclick="return confirm('{$lang['stopservermsg']}')"><span class="glyphicon glyphicon-stop"></span> {$lang['stop']}</button>
+                <button type="submit" style="margin-bottom: 5px; width: 50%; height: 50px" name="start" class="start btn btn-success">{$lang['start']}</button>
+                <button type="submit" style="margin-bottom: 5px; width: 50%; height: 50px" name="stop" class="stop btn btn-danger" onclick="return confirm('{$lang['stopservermsg']}')">{$lang['stop']}</button>
                 </div>
             </form>
-
         </div>
-        <a href="#msgtosrv" data-toggle="modal" type="button" style="margin-bottom: 20px; width: 80%;" class="btn btn-warning btn-block center-block"><span class="glyphicon glyphicon-envelope"></span>  {$lang['msgtosrvmenu']}</a>
-            <div class="well">
+        <a href="#msgtosrv" data-toggle="modal" type="button" style="margin-bottom: 20px; width: 80%" class="btn btn-warning btn-block center-block"><span class="glyphicon glyphicon-envelope"></span>  {$lang['msgtosrvmenu']}</a>
+    {* Status *}
+        <h5>{$lang['status']}</h5>
+        {if $serverinfo['virtualserver_status'] == "online"}
+            <button type="button" class="btn btn-success btn-block disabled">{$serverinfo['virtualserver_status']}</button>
+        {else}
+            <button type="button" class="btn btn-danger btn-block disabled">{$serverinfo['virtualserver_status']}</button>
+        {/if}
+        <span class="sr-only"><hr></span>
+        {* Usage *}
+        <h5>{$lang['slotusage']}</h5>
+        <div class="progress" style="height: 30px">
+            <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" style="width: {($serverinfo['virtualserver_clientsonline']-$serverinfo['virtualserver_queryclientsonline'])/$serverinfo['virtualserver_maxclients']*100}%;">
+                <span class="sr-only">{$serverinfo['virtualserver_clientsonline']-$serverinfo['virtualserver_queryclientsonline']} / {$serverinfo['virtualserver_maxclients']}</span>
+            </div>
+        </div>
+        <span class="sr-only"><hr></span>
+        <div class="well">
             <a href="#" type="button" style="margin-bottom: 10px" class="disabled btn btn-sm btn-default btn-block">{$lang['connectvserver']}</a>
             <?php } ?>
             {$tree}

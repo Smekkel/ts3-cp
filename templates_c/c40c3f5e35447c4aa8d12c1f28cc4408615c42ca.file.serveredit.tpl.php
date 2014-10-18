@@ -1,22 +1,21 @@
-<?php /* Smarty version Smarty3rc4, created on 2014-10-18 13:23:39
+<?php /* Smarty version Smarty3rc4, created on 2014-10-18 20:49:37
          compiled from "W:\home\cp.test.ru\www\ts3wi\templates/bootstrap/serveredit.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:114705442319b3bd0b9-96583296%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:714054429a21990cf0-38294505%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'c40c3f5e35447c4aa8d12c1f28cc4408615c42ca' => 
     array (
       0 => 'W:\\home\\cp.test.ru\\www\\ts3wi\\templates/bootstrap/serveredit.tpl',
-      1 => 1405648267,
+      1 => 1413650906,
     ),
   ),
-  'nocache_hash' => '114705442319b3bd0b9-96583296',
+  'nocache_hash' => '714054429a21990cf0-38294505',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
 )); /*/%%SmartyHeaderCode%%*/?>
-
 <?php if (!empty($_smarty_tpl->getVariable('error')->value)||!empty($_smarty_tpl->getVariable('noerror')->value)){?>
     <div class="container container-alert">
         <?php if (!empty($_smarty_tpl->getVariable('error')->value)){?>

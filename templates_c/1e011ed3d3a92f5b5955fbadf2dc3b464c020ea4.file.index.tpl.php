@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty3rc4, created on 2014-10-18 13:10:53
+<?php /* Smarty version Smarty3rc4, created on 2014-10-19 01:27:02
          compiled from "W:\home\cp.test.ru\www\ts3wi\templates/bootstrap\index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:1736254422e9dc1ce64-78869471%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:301575442db26b79841-30929939%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '1e011ed3d3a92f5b5955fbadf2dc3b464c020ea4' => 
     array (
       0 => 'W:\\home\\cp.test.ru\\www\\ts3wi\\templates/bootstrap\\index.tpl',
-      1 => 1413623450,
+      1 => 1413667601,
     ),
   ),
-  'nocache_hash' => '1736254422e9dc1ce64-78869471',
+  'nocache_hash' => '301575442db26b79841-30929939',
   'function' => 
   array (
   ),
@@ -19,7 +19,6 @@ $_smarty_tpl->decodeProperties(array (
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!--
 *Copyright (C) 2012-2013  Psychokiller
-*Template "Yeti" by San3ko. (based on Bootstrap, Yeti, jQuery
 *
 *This program is free software; you can redistribute it and/or modify it under the terms of 
 *the GNU General Public License as published by the Free Software Foundation; either 
@@ -38,11 +37,11 @@ $_smarty_tpl->decodeProperties(array (
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <link rel="stylesheet" href="templates/<?php echo $_smarty_tpl->getVariable('tmpl')->value;?>
-/gfx/style.css" type="text/css" media="screen" />
+/gfx/css/style.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="templates/<?php echo $_smarty_tpl->getVariable('tmpl')->value;?>
-/gfx/tsview.css" type="text/css" media="screen" />
+/gfx/css/tsview.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="templates/<?php echo $_smarty_tpl->getVariable('tmpl')->value;?>
-/gfx/bootstrap.css" type="text/css" media="screen" />
+/gfx/css/bootstrap-grid.css" type="text/css" media="screen" />
 <link href='http://fonts.googleapis.com/css?family=Syncopate' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="templates/<?php echo $_smarty_tpl->getVariable('tmpl')->value;?>
 /gfx/js/jquery-2.1.1.min.js"></script>
@@ -217,10 +216,6 @@ function confirmAction()
     <div class="container-main">
         <div class="container-main">
             <?php $_template = new Smarty_Internal_Template(($_smarty_tpl->getVariable('tmpl')->value)."/mainbar.tpl", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
- echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
-        </div>
-        <div class="container-header">
-        <?php $_template = new Smarty_Internal_Template(($_smarty_tpl->getVariable('tmpl')->value)."/showupdate.tpl", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
  echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
         </div>
     </div>

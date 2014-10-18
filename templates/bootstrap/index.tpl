@@ -1,7 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!--
 *Copyright (C) 2012-2013  Psychokiller
-*Template "Yeti" by San3ko. (based on Bootstrap, Yeti, jQuery
 *
 *This program is free software; you can redistribute it and/or modify it under the terms of 
 *the GNU General Public License as published by the Free Software Foundation; either 
@@ -19,9 +18,9 @@
 <meta name="viewport" content="width=device-width">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<link rel="stylesheet" href="templates/{$tmpl}/gfx/style.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="templates/{$tmpl}/gfx/tsview.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="templates/{$tmpl}/gfx/bootstrap.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="templates/{$tmpl}/gfx/css/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="templates/{$tmpl}/gfx/css/tsview.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="templates/{$tmpl}/gfx/css/bootstrap-grid.css" type="text/css" media="screen" />
 <link href='http://fonts.googleapis.com/css?family=Syncopate' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="templates/{$tmpl}/gfx/js/jquery-2.1.1.min.js"></script>
 <script src="templates/{$tmpl}/gfx/js/bootstrap.js" type="text/javascript"></script>
@@ -198,10 +197,10 @@ function confirmAction()
         <div class="container-main">
             {include file="{$tmpl}/mainbar.tpl"}
         </div>
-        <div class="container-header">
-        {* {include file="{$tmpl}/head.tpl"} *}
+        {* <div class="container-header">
+        {include file="{$tmpl}/head.tpl"}
         {include file="{$tmpl}/showupdate.tpl"}
-        </div>
+        </div> *}
     </div>
     <div class="container-main" align="center">
         {include file="{$tmpl}/{$site}.tpl"}
