@@ -1,0 +1,67 @@
+body
+	{
+	background-color:#808080;
+    padding-top: 70px;
+    padding-bottom: 40px;
+	}
+
+/* Login page */
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+.form-signin .form-signin-heading, .form-signin .checkbox {
+    margin-bottom: 10px;
+}
+.form-signin .checkbox {
+    font-weight: normal;
+}
+.form-signin .form-control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+.form-signin input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.btn-right{
+    float:right;
+}
+.btn-select{
+    float:right;
+}
+.navbar{
+    padding-right: 5px;
+}
+.nav{
+    padding-right: 5px;
+}
+.navbar-brand {
+    font-family: 'Syncopate', sans-serif;
+}
+.mass-sel {
+    height: 40px;
+}
+.maincat
+{
+    text-align:center;
+}
+.form-group {
+    margin-bottom: 100px;
+}
