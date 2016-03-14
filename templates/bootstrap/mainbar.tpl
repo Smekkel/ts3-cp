@@ -6,9 +6,9 @@
             <span class="icon-bar"></span>
         </button>
         {if $hoststatus === true}
-            <a href="index.php" class="navbar-brand">DEFNOX <sup><small>cp</small></sup></a>
+            <a href="index.php" class="navbar-brand">TS3<sup><small>CP</small></sup></a>
         {else}
-            <a href="index.php?site=serverview&sid={$sid}" class="navbar-brand">DEFNOX <sup><small>cp</small></sup></a>
+            <a href="index.php?site=serverview&sid={$sid}" class="navbar-brand">TS3<sup><small>CP</small></sup></a>
         {/if}
     </div>
     {if $loginstatus === true AND $site !==login}
@@ -115,7 +115,7 @@
                 <li><a href="index.php?site=serverview&sid={$sid}"><span class="glyphicon glyphicon-bookmark"></span> {$lang['my-server']}</a></li>
             {/if}
             <li class="dropdown">
-                <a href="" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"> </span>  {$smarty.session.loginuser}<span class="caret"></span></a>
+                <a href="" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user" style="margin-right: 10px"> </span> {$smarty.session.loginuser}<span class="caret" style="margin-left: 10px"></span></a>
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="index.php?site=console&amp;sid={$sid}">{$lang['queryconsole']}</a></li>
                     <li><a href="#msgtoall" data-toggle="modal">{$lang['msgtoallmenu']}</a></li>

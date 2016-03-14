@@ -99,7 +99,7 @@
                 </button>
             </h4>
         </div>
-        <div id="collapseOne" class="panel-collapse collapse">
+        <div id="collapseOne" class="panel-collapse collapse in">
         <div class="panel-body">
 
             <div class="table-responsive">

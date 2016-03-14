@@ -57,8 +57,20 @@
                             <span class="offline">{$lang['offline']}</span>
                         {/if}
                     </td>
-                    <td class="{$td_col} center">{$value['virtualserver_uptime']}</td>
-                    <td class="{$td_col} center">{$value['virtualserver_clientsonline']} / {$value['virtualserver_maxclients']}</td>
+                    <td class="{$td_col} center">
+                        {if $value['virtualserver_status'] != "offline"}
+                            {$value['virtualserver_uptime']}
+                        {else}
+                            <span class="offline">{$lang['offline']}</span>
+                        {/if}
+                    </td>
+                    <td class="{$td_col} center">
+                        {if $value['virtualserver_status'] != "offline"}
+                            {$value['virtualserver_clientsonline']} / {$value['virtualserver_maxclients']}
+                        {else}
+                            0 / 0
+                        {/if}
+                        </td>
                     <td class="{$td_col} center"><input type="checkbox" name="caction[{$value['virtualserver_id']}][auto]" value="1" {if $value['virtualserver_autostart'] == 1}checked="checked"{/if}/></td>
                     <td class="{$td_col} center">
                        {* class="input-sm form-control" *}

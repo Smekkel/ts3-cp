@@ -1681,12 +1681,11 @@ if($cfglang=='ru')
     $lang['banallclients']="Забанить всех";
     $lang['banclientsbycgroup']="Забанить по группе канала";
     $lang['banclientsbysgroup']="Забанить по группе сервера";
-
     $lang['bandelok']="Успешно разбанен.";
     $lang['bandwidthlastminute']="Нагрузка за минуту";
     $lang['bandwidthlastsecond']="Нагрузка за секунду";
     $lang['banfrom']="Бан от";
-    $lang['banid']="Ban Id";
+    $lang['banid']="Бан ID";
     $lang['banlist']="Бан лист";
     $lang['banmsg']="Сообщение";
     $lang['bans']="Баны";
@@ -1779,7 +1778,7 @@ if($cfglang=='ru')
     $lang['createnewserver']="Новый виртуальный сервер";
     $lang['createserver']="Новый сервер";
     $lang['createserverbackup']="Create Server Backup";
-    $lang['createserverdesc']="It must specify a server name, the remaining values are optional.<br />Fields left blank, the default settings are used!";
+    $lang['createserverdesc']="Для создания сервера нужно указать как минимум название, все остальное опционально.<br />Пустые поля будут взяты из шаблона \"по умолчанию\"!";
     $lang['createtoken']="Создать токен";
     $lang['date']="Date";
     $lang['days']=" Days";
@@ -1787,8 +1786,8 @@ if($cfglang=='ru')
     $lang['debug']="Debug";
     $lang['default']="Default";
     $lang['defaultnopw']="Default channel can not have a password.";
-    $lang['delall']="Delete all";
-    $lang['delete']="Delete";
+    $lang['delall']="Удалить все";
+    $lang['delete']="Удалить";
     $lang['deleteallclientsoffline']="Delete all my clients that are offline more than ";
     $lang['deleteallclientsoffline2']=" days offline!";
     $lang['deletemsgchannel']="Do you really want to delete this channel?";
@@ -1858,10 +1857,10 @@ if($cfglang=='ru')
     $lang['information']="Information";
     $lang['inherited']="Inherited";
     $lang['inputbox']="Input Box";
-    $lang['instance']="Instance";
-    $lang['instancebackup']="Бекап всего сервера";
-    $lang['instanceedit']="Редактировать сервер";
-    $lang['instancetraffic']="Трафик сервера";
+    $lang['instance']="Нода";
+    $lang['instancebackup']="Бекап всей ноды";
+    $lang['instanceedit']="Редактировать ноду";
+    $lang['instancetraffic']="Трафик ноды";
     $lang['invokername']="Invoker Name";
     $lang['invokeruid']="Invoker Uid";
     $lang['ip']="Ip";
@@ -1985,7 +1984,7 @@ if($cfglang=='ru')
     $lang['searchfor']="Search for ";
     $lang['seconds']=" Seconds";
     $lang['securitylevel']="Security level";
-    $lang['select']="Select";
+    $lang['select']="Выбрать";
     $lang['selectall']="Select all";
     $lang['semipermanent']="Semi Permanent";
     $lang['send']="Отправить";
@@ -2021,7 +2020,7 @@ if($cfglang=='ru')
     $lang['showmessagelog']="Show message in log";
     $lang['showmodalmessage']="Show modal message";
     $lang['showmoreentrys']="Show more entrys";
-    $lang['showonweblist']="Show server on weblist";
+    $lang['showonweblist']="Показ серверов в глобальном списке";
     $lang['size']="Size";
     $lang['skip']="Skip";
     $lang['snapwarning']="Regard!<br />If you are uploading a server backup to a virtual server while the server from which the backup is still running, this causes continuously a crash, if both server simultaneously running!";
@@ -2063,7 +2062,7 @@ if($cfglang=='ru')
     $lang['total']="Total";
     $lang['totalsize']="Total size";
     $lang['transfers']="Transfers";
-    $lang['tsviewpubhtml']="Copy and paste the html code in an external html file where it will display the Ts-Viewer:";
+    $lang['tsviewpubhtml']="Скопируйте этот код для встраивания в любое место";
     $lang['type']="Type";
     $lang['uniqueid']="Unique Id";
     $lang['unlimited']="Unlimited";
@@ -2098,4 +2097,6 @@ if($cfglang=='ru')
     $lang['copyhtmlcode']="Скопировать код";
     $lang['setpswd']="Установить";
     $lang['my-server']="Мой сервер";
+	$lang['instanceparams']="Параметры ноды";
+	$lang['webliststatus']="Статус";
     }

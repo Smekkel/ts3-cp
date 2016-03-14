@@ -20,7 +20,7 @@
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <link rel="stylesheet" href="templates/{$tmpl}/gfx/css/bootstrap-grid.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="templates/{$tmpl}/gfx/css/tsview.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="templates/{$tmpl}/gfx/css/jasny-bootstrap.css" type="text/css" media="screen" />
+	{* <link rel="stylesheet" href="templates/{$tmpl}/gfx/css/jasny-bootstrap.css" type="text/css" media="screen" /> *}
 <link rel="stylesheet" href="templates/{$tmpl}/gfx/css/style.css" type="text/css" media="screen" />
 <link href='http://fonts.googleapis.com/css?family=Syncopate' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="templates/{$tmpl}/gfx/js/jquery-2.1.1.min.js"></script>

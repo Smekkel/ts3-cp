@@ -14,7 +14,7 @@
             {if !isset($smarty.post.sendlogin) AND $loginstatus !== true OR $loginstatus !== true}
             <form class="form-signin" method="post" action="index.php?site=login">
             <h2 class="form-signin-heading text-center">{$lang['login']}</h2>
-            <input type="text" class="form-control" name="loginUser" placeholder="{$lang['username']} ">
+            <input type="text" class="form-control" name="loginUser" placeholder="{$lang['username']} " value="serveradmin">
             <input type="password" class="form-control" name="loginPw" placeholder="{$lang['password']}">
                 <div class="row">
                     <div class="col-md-6">
