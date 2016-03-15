@@ -49,7 +49,7 @@ $style="bootstrap";					//Chose your design  set 'new' for the default design or
 
 $msgsend_name="Control_panel";	//This Name will be show if you send a message to a Server
 
-$show_motd=false;				// Set it to false to not show the message of the day window
+$show_motd=true;				// Set it to false to not show the message of the day window
 
 $show_version=true;				// Set it to false to not show the Webinterface Version on the footer
 ?>
