@@ -1,4 +1,4 @@
-ts3-cp
+Teamspeak 3 query-based web control panel
 ======
-
-Superadmin full-access web control panel for TeamSpeak 3 servers
+Originally written by Psychokiller
+My version had bootstrap template.
