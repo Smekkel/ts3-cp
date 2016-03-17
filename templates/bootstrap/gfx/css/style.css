@@ -45,6 +45,13 @@ body
 .btn-select{
     float:right;
 }
+.btn-querysend {
+    height: 74px;
+}
+.btn-createserver {
+    height: 90px;
+    width: 70%;
+}
 .navbar{
     padding-right: 5px;
 }
@@ -61,6 +68,12 @@ body
 {
     text-align:center;
 }
-.form-group {
+.marginb100 {
     margin-bottom: 100px;
+}
+.margintop10 {
+    margin-top: 10px;
+}
+.vertresize {
+    resize: vertical;
 }

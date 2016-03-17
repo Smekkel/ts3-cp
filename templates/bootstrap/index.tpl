@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!--
 *Copyright (C) 2012-2013  Psychokiller
+* Bootstrap template by San3ko (san3ko.com/san3ko@ya.ru)
 *
 *This program is free software; you can redistribute it and/or modify it under the terms of 
 *the GNU General Public License as published by the Free Software Foundation; either 

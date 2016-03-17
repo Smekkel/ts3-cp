@@ -1856,7 +1856,7 @@ if($cfglang=='ru')
     $lang['info']="Info";
     $lang['information']="Information";
     $lang['inherited']="Inherited";
-    $lang['inputbox']="Input Box";
+    $lang['inputbox']="Запрос";
     $lang['instance']="Нода";
     $lang['instancebackup']="Бекап всей ноды";
     $lang['instanceedit']="Редактировать ноду";
@@ -1887,7 +1887,7 @@ if($cfglang=='ru')
     $lang['logout']="Выход";
     $lang['logpermissions']="Log Permissions";
     $lang['logquery']="Log Query";
-    $lang['logs']="Logs";
+    $lang['logs']="Логи";
     $lang['logserver']="Log Server";
     $lang['logview']="Просмотр логов";
     $lang['mainchannel']="Mainchannel";
@@ -1895,16 +1895,16 @@ if($cfglang=='ru')
     $lang['massban']="Mass Ban";
     $lang['masskicker']="Mass Kicker";
     $lang['massmover']="Mass Mover";
-    $lang['maxclients']="Max. Clients";
-    $lang['maxdownbandwidth']="Max. Download Bandwidth";
+    $lang['maxclients']="Макс. клиентов";
+    $lang['maxdownbandwidth']="Макс. скорость загрузки";
     $lang['maxfamilyclients']="Max Family Clients";
     $lang['maxfamilyclientsinherited']="Max Family Clients Inherited";
-    $lang['maxreservedslots']="Number of reserved slots";
-    $lang['maxupbandwidth']="Max. Upload Bandwidth";
+    $lang['maxreservedslots']="Слотов зарезервированно";
+    $lang['maxupbandwidth']="Макс. скорость отдачи";
     $lang['message']="Message";
-    $lang['minclientschan']="Min. number of clients in the channel to force for silence";
-    $lang['minclientversion']="Min. Client Version";
-    $lang['minutes']=" Minutes";
+    $lang['minclientschan']="Клиентов в канале для тишины";
+    $lang['minclientversion']="Мин. Версия клиента";
+    $lang['minutes']=" Минуты";
     $lang['modalandexit']="Modal message and exit";
     $lang['modify']="Modify";
     $lang['motd']="Сообщение администратора";
@@ -1914,7 +1914,7 @@ if($cfglang=='ru')
     $lang['moveclientsbysgroup']="Move clients by server group";
     $lang['movefrom']="Move from";
     $lang['moveto']="Move to";
-    $lang['msgsendok']="Message sent successfully.";
+    $lang['msgsendok']="Сообщение успешно отправлено.";
     $lang['msgtoall']="Отправить сообщение на все серверы.";
     $lang['msgtoserver']="Отправить сообщение на сервер.";
     $lang['name']="Название";
@@ -1923,10 +1923,10 @@ if($cfglang=='ru')
     $lang['newpassword']="Новый пароль";
     $lang['next']="Next";
     $lang['nickname']="Nickname";
-    $lang['no']="No";
+    $lang['no']="Нет";
     $lang['nochannel']="It must be given a Channel if tokentype=1";
     $lang['nohoster']="You are not authorized to see this site.";
-    $lang['nomaxclients']="Max Clients must be specified.";
+    $lang['nomaxclients']="Необходимо указать максимальное количество клиентов";
     $lang['nomessage']="No message";
     $lang['nopermissions']="You don't have the Permission to see this infos!";
     $lang['nopermsfound']="No Permissions found";
@@ -1938,13 +1938,13 @@ if($cfglang=='ru')
     $lang['notapic']="There must be a picture uploaded!";
     $lang['nouse']="You do not have permission to use the \"use\" command!";
     $lang['number']="Number";
-    $lang['offline']="Offline";
-    $lang['online']="Online";
-    $lang['onlinevirtual']="Online Virtual";
+    $lang['offline']="Оффлайн";
+    $lang['online']="Онлайн";
+    $lang['onlinevirtual']="Виртуально олнайн (query)";
     $lang['option']="Option";
     $lang['options']="Options";
     $lang['outgoing']="Outgoing";
-    $lang['outputbox']="Output Box";
+    $lang['outputbox']="Ответ сервера";
     $lang['overwritegroup']="Overwrite from";
     $lang['packetstransfered']="Packets Transfered";
     $lang['pagenotfound']="Page not found!";
@@ -1973,7 +1973,7 @@ if($cfglang=='ru')
     $lang['port']="Порт";
     $lang['query']="Query";
     $lang['queryclients']="Query Clients";
-    $lang['queryconsole']="Query Console";
+    $lang['queryconsole']="Query Консоль";
     $lang['questsquerygroup']="Guest Server Query Group";
     $lang['reason']="Reason";
     $lang['removetime']="Remove Time";
@@ -1983,9 +1983,9 @@ if($cfglang=='ru')
     $lang['search']="Search";
     $lang['searchfor']="Search for ";
     $lang['seconds']=" Seconds";
-    $lang['securitylevel']="Security level";
+    $lang['securitylevel']="Уровень безопасности";
     $lang['select']="Выбрать";
-    $lang['selectall']="Select all";
+    $lang['selectall']="Выбрать все";
     $lang['semipermanent']="Semi Permanent";
     $lang['send']="Отправить";
     $lang['server']="Сервер";
@@ -2020,7 +2020,7 @@ if($cfglang=='ru')
     $lang['showmessagelog']="Show message in log";
     $lang['showmodalmessage']="Show modal message";
     $lang['showmoreentrys']="Show more entrys";
-    $lang['showonweblist']="Показ серверов в глобальном списке";
+    $lang['showonweblist']="Видимость в глобальном списке";
     $lang['size']="Size";
     $lang['skip']="Skip";
     $lang['snapwarning']="Regard!<br />If you are uploading a server backup to a virtual server while the server from which the backup is still running, this causes continuously a crash, if both server simultaneously running!";
@@ -2081,7 +2081,7 @@ if($cfglang=='ru')
     $lang['virtualservermanagement']="Virtual Server Management";
     $lang['virtualtraffic']="Трафик сервера";
     $lang['warning']="Warning";
-    $lang['welcomemsg']="Welcome message";
+    $lang['welcomemsg']="Приветствие";
     $lang['weblisteditok']="Webliste successfully edited.";
     $lang['wiupdateav']="Webinterface update available to ";
     $lang['yes']="Yes";
@@ -2099,4 +2099,7 @@ if($cfglang=='ru')
     $lang['my-server']="Мой сервер";
 	$lang['instanceparams']="Параметры ноды";
 	$lang['webliststatus']="Статус";
-    }
+	$lang['createnewserver_basic']="Основные параметры";
+	$lang['createnewserver_advanced']="Дополнительные параметры";
+	$lang['msgtexthere']="Введите текст сообщения здесь...";
+	}

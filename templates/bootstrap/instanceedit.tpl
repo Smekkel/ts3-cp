@@ -37,46 +37,68 @@
 					<div class="col-sm-4">
 						<input type="text" id="questsquerygroup" name="newsettings[serverinstance_guest_serverquery_group]" class="form-control marginbo10" value="{$instanceinfo['serverinstance_guest_serverquery_group']}">
 					</div>
+				</div>
+				<div class="form-group">
 					<label for="tempsadmingroup" class="col-sm-8 control-label">{$lang['tempsadmingroup']}</label>
-					<div class="col-sm-4" style="padding-top: 10px;">
+					<div class="col-sm-4">
 						<input type="text" id="tempsadmingroup" name="newsettings[serverinstance_template_serveradmin_group]" class="form-control" value="{$instanceinfo['serverinstance_template_serveradmin_group']}">
 					</div>
+				</div>
+				<div class="form-group">
 					<label for="tempcadmingroup" class="col-sm-8 control-label">{$lang['tempcadmingroup']}</label>
-					<div class="col-sm-4" style="padding-top: 10px;">
+					<div class="col-sm-4">
 						<input type="text" id="tempcadmingroup" name="newsettings[serverinstance_template_channeladmin_group]" class="form-control" value="{$instanceinfo['serverinstance_template_channeladmin_group']}">
 					</div>
+				</div>
+				<div class="form-group">
 					<label for="tempsdefgroup" class="col-sm-8 control-label">{$lang['tempsdefgroup']}</label>
-					<div class="col-sm-4" style="padding-top: 10px;">
+					<div class="col-sm-4">
 						<input type="text" id="tempsdefgroup" name="newsettings[serverinstance_template_serverdefault_group]" class="form-control" value="{$instanceinfo['serverinstance_template_serverdefault_group']}">
 					</div>
+				</div>
+				<div class="form-group">
 					<label for="tempcdefgroup" class="col-sm-8 control-label">{$lang['tempsdefgroup']}</label>
-					<div class="col-sm-4" style="padding-top: 10px;">
+					<div class="col-sm-4">
 						<input type="text" id="tempcdefgroup" name="newsettings[serverinstance_template_channeldefault_group]" class="form-control" value="{$instanceinfo['serverinstance_template_channeldefault_group']}">
 					</div>
+				</div>
+				<div class="form-group">
 					<label for="filetransport" class="col-sm-8 control-label">{$lang['filetransport']}</label>
-					<div class="col-sm-4" style="padding-top: 10px;">
+					<div class="col-sm-4">
 						<input type="text" id="filetransport" name="newsettings[serverinstance_filetransfer_port]" class="form-control" value="{$instanceinfo['serverinstance_filetransfer_port']}">
 					</div>
+				</div>
+				<div class="form-group">
 					<label for="maxdownbandwidth" class="col-sm-8 control-label">{$lang['maxdownbandwidth']}</label>
-					<div class="col-sm-4" style="padding-top: 10px;">
+					<div class="col-sm-4">
 						<input type="text" id="maxdownbandwidth" name="newsettings[serverinstance_max_download_total_bandwidth]" class="form-control" value="{$instanceinfo['serverinstance_max_download_total_bandwidth']}">
 					</div>
+				</div>
+				<div class="form-group">
 					<label for="maxupbandwidth" class="col-sm-8 control-label">{$lang['maxupbandwidth']}</label>
-					<div class="col-sm-4" style="padding-top: 10px;">
+					<div class="col-sm-4">
 						<input type="text" id="maxupbandwidth" name="newsettings[serverinstance_max_upload_total_bandwidth]" class="form-control" value="{$instanceinfo['serverinstance_max_upload_total_bandwidth']}">
 					</div>
+				</div>
+				<div class="form-group">
 					<label for="squeryfloodcmd" class="col-sm-8 control-label">{$lang['squeryfloodcmd']}</label>
-					<div class="col-sm-4" style="padding-top: 10px;">
+					<div class="col-sm-4">
 						<input type="text" id="squeryfloodcmd" name="newsettings[serverinstance_serverquery_flood_commands]" class="form-control" value="{$instanceinfo['serverinstance_serverquery_flood_commands']}">
 					</div>
+				</div>
+				<div class="form-group">
 					<label for="squeryfloodtime" class="col-sm-8 control-label">{$lang['squeryfloodtime']}</label>
-					<div class="col-sm-4" style="padding-top: 10px;">
+					<div class="col-sm-4">
 						<input type="text" id="squeryfloodtime" name="newsettings[serverinstance_serverquery_flood_time]" class="form-control" value="{$instanceinfo['serverinstance_serverquery_flood_time']}">
 					</div>
+				</div>
+				<div class="form-group">
 					<label for="squerybantime" class="col-sm-8 control-label">{$lang['squerybantime']}</label>
-					<div class="col-sm-4" style="padding-top: 10px;">
+					<div class="col-sm-4">
 						<input type="text" id="squerybantime" name="newsettings[serverinstance_serverquery_ban_time]" class="form-control" value="{$instanceinfo['serverinstance_serverquery_ban_time']}">
 					</div>
+				</div>
+				<div class="form-group">
 					<div class="col-sm-4 col-md-offset-8" style="padding-top: 10px;">
 						<button class="btn btn-success btn-block marginup10" type="submit" name="editinstance">{$lang['edit']}</button>
 					</div>

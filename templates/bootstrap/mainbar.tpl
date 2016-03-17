@@ -1,11 +1,11 @@
-<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar navbar-default navbar-fixed-top">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        {if $hoststatus === true}
+        {if isset($sid) == false}
             <a href="index.php" class="navbar-brand">TS3<sup><small>CP</small></sup></a>
         {else}
             <a href="index.php?site=serverview&sid={$sid}" class="navbar-brand">TS3<sup><small>CP</small></sup></a>
@@ -108,16 +108,19 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right data-no-collapse="true">
+            {if isset($sid)}
+                <li><a href="index.php?site=console&amp;sid={$sid}"><span class="glyphicon glyphicon-wrench"></span> {$lang['queryconsole']}</a></li>
+            {/if}
             {if $fastswitch == true AND $hoststatus === true}
                 <li><a href="#server-switch" data-toggle="modal"><span class="glyphicon glyphicon-sort"></span> {$lang['switch-server']}</a></li>
             {/if}
-            {if $hoststatus === false}
+            {* {if isset($sid)}
                 <li><a href="index.php?site=serverview&sid={$sid}"><span class="glyphicon glyphicon-bookmark"></span> {$lang['my-server']}</a></li>
-            {/if}
+            {/if} *}
             <li class="dropdown">
                 <a href="" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user" style="margin-right: 10px"> </span> {$smarty.session.loginuser}<span class="caret" style="margin-left: 10px"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="index.php?site=console&amp;sid={$sid}">{$lang['queryconsole']}</a></li>
+                    {if isset($sid)}<li><a href="index.php?site=console&amp;sid={$sid}">{$lang['queryconsole']}</a></li>{/if}
                     <li><a href="#msgtoall" data-toggle="modal">{$lang['msgtoallmenu']}</a></li>
                     <li class="divider"></li>
                     <li><a href="index.php?site=logout"><span class="glyphicon glyphicon-log-out"> </span> {$lang['logout']}</a></li>
@@ -128,52 +131,54 @@
     {/if}
 </div>
 <!-- Modal -->
-<div class="modal fade" id="server-switch" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" tabindex="-1" id="server-switch" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-body">
-                <div class="container-modal">
-                    <h3>{$lang['choose-server']}</h3>
-                    {if $fastswitch == true AND $hoststatus === true}
-                        <form class="fastswitch-selection" method="get" action="index.php?site=serverview">
-                            {if strpos($site, 'edit') == false OR $site == serveredit}
-                                <input type="hidden" name="site" value="{$site}" />
-                            {else}
-                                <input type="hidden" name="site" value="serverview" />
-                            {/if}
-                            <select class="fastswitch-selection form-control" name="sid" onchange="submit()">
-                                {foreach key=key item=server from=$serverlist}
-                                    {if $sid == $server['virtualserver_id']}
-                                        <option selected="selected" value="{$server['virtualserver_id']}">{$server['virtualserver_name']}-{$server['virtualserver_port']}</option>
-                                    {else}
-                                        <option value="{$server['virtualserver_id']}">{$server['virtualserver_name']}-{$server['virtualserver_port']}</option>
-                                    {/if}
-                                {/foreach}
-                            </select>
-                        </form>
+            <form class="fastswitch-selection" method="get" action="index.php?site=serverview">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">{$lang['choose-server']}</h4>
+                </div>
+                <div class="modal-body">
+                    {if strpos($site, 'edit') == false OR $site == serveredit}
+                        <input type="hidden" name="site" value="{$site}" />
+                    {else}
+                        <input type="hidden" name="site" value="serverview" />
                     {/if}
-                    <br>
-                    <button type="button" class="btn btn-modal-close btn-xs btn-info" data-dismiss="modal">{$lang['close']}</button>
+                    <select class="fastswitch-selection form-control" name="sid">
+                        {foreach key=key item=server from=$serverlist}
+                            {if $sid == $server['virtualserver_id']}
+                                <option selected="selected" value="{$server['virtualserver_id']}">{$lang['id']}:{$server['virtualserver_id']} [{$server['virtualserver_name']}] {$lang['port']}:{$server['virtualserver_port']}</option>
+                            {else}
+                                <option value="{$server['virtualserver_id']}">{$lang['id']}:{$server['virtualserver_id']} [{$server['virtualserver_name']}] {$lang['port']}:{$server['virtualserver_port']}</option>
+                            {/if}
+                        {/foreach}
+                    </select>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="msgtoall" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{$lang['close']}</button>
+                    <button type="button" class="btn btn-primary" type="submit" onclick="submit()"  name="sid">{$lang['switch']}</button>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="modal fade" tabindex="-1" role="dialog" id="msgtoall">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-body">
-                <div class="container-modal">
-                    <h3>{$lang['msgtoall']}</h3>
-                    <form method="post" action="index.php?site=server">
-                        <textarea class="form-control" type="text" name="msgtoall" rows="3"></textarea>
-                        <br>
-                        <button class="btn btn-primary btn-block" type="submit" name="sendmsg">{$lang['send']}</button>
-                        <br>
-                        <button type="button" class="btn btn-modal-close btn-xs btn-default" data-dismiss="modal" style="width: 80%">{$lang['close']}</button>
-                    </form>
-                </div>
+            <form method="post" action="index.php?site=server">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">{$lang['msgtoall']}</h4>
             </div>
-        </div>
-    </div>
-</div>
+            <div class="modal-body">
+                    <textarea class="form-control vertresize" type="text" name="msgtoall" rows="3" placeholder="{$lang['msgtexthere']}"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">{$lang['close']}</button>
+                <button type="button" class="btn btn-primary" type="submit" name="sendmsg">{$lang['send']}</button>
+            </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
