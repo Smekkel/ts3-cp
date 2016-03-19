@@ -7,10 +7,12 @@
 {/if}
 <div class="container-login">
             {if !empty($motd)}
-            <div class="alert alert-dismissable alert-success">
-                <h4><b>{$lang['motd']}</b></h4>{$motd}
+            <div class="container">
+                <div class="alert alert-dismissable alert-success">
+                    <h4><b>{$lang['motd']}</b></h4>{$motd}
+                </div>
             </div>
-            {/if}
+             {/if}
             {if !isset($smarty.post.sendlogin) AND $loginstatus !== true OR $loginstatus !== true}
             <form class="form-signin" method="post" action="index.php?site=login">
             <h2 class="form-signin-heading text-center">{$lang['login']}</h2>

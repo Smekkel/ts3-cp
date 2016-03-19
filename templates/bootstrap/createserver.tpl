@@ -23,7 +23,7 @@
 
 	{* Server creation *}
 	{if !isset($smarty.post.createserver) OR !empty($error)}
-		<div class="container-fluid">
+		<div class="container">
 			<form method="post" action="index.php?site=createserver" class="form-horizontal">
 			{* Head *}
 			<div class="well-sm">
@@ -433,7 +433,7 @@
 				</div>
 				{* submit button *}
 				<div class="container">
-					<input class="btn btn-primary btn-lg btn-createserver" type="submit" name="createserver" value="{$lang['create']}"/>
+					<input class="btn btn-primary btn-block btn-lg" type="submit" name="createserver" value="{$lang['create']}"/>
 				</div>
 			</div>
 			</form>

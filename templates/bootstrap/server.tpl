@@ -43,7 +43,7 @@
                 <td class="thead"><input type="submit" name="massaction" value="{$lang['action']}" onclick="return confirm(confirmAction())" /></td>
             </tr> *}
             {foreach key=key item=value from=$serverlist}
-                {if $change_col % 2} {assign var=td_col value="green1"} {else} {assign var=td_col value="green2"} {/if}
+                {if $change_col % 2} {assign var=td_col value="active"} {else} {assign var=td_col value="green2"} {/if}
                 <tr>
                     <td class="{$td_col} center">{$value['virtualserver_id']}</td>
                     <td class="{$td_col} center"><a href="index.php?site=serverview&amp;sid={$value['virtualserver_id']}">{$value['virtualserver_name']}</a></td>
@@ -74,7 +74,7 @@
                     <td class="{$td_col} center"><input type="checkbox" name="caction[{$value['virtualserver_id']}][auto]" value="1" {if $value['virtualserver_autostart'] == 1}checked="checked"{/if}/></td>
                     <td class="{$td_col} center">
                        {* class="input-sm form-control" *}
-                        <select  id="caction{$value['virtualserver_id']}" name="caction[{$value['virtualserver_id']}][action]" onchange="confirmArray('{$value['virtualserver_id']}', '{$value['virtualserver_name']|addslashes}', '{$value['virtualserver_port']}', '');">
+                        <select id="caction{$value['virtualserver_id']}" name="caction[{$value['virtualserver_id']}][action]" onchange="confirmArray('{$value['virtualserver_id']}', '{$value['virtualserver_name']|addslashes}', '{$value['virtualserver_port']}', '');">
                             <option value="">{$lang['select']}</option>
                             <option value="start">{$lang['start']}</option>
                             <option value="stop">{$lang['stop']}</option>
