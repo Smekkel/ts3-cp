@@ -2102,4 +2102,5 @@ if($cfglang=='ru')
 	$lang['createnewserver_basic']="Основные параметры";
 	$lang['createnewserver_advanced']="Дополнительные параметры";
 	$lang['msgtexthere']="Введите текст сообщения здесь...";
+    $lang['nobackups']="Бекапов не найдено!";
 	}

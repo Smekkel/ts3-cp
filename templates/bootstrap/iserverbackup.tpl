@@ -185,15 +185,19 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-3 col-md-offset-3">
-				<form method="post" action="index.php?site=iserverbackup">
-					<input class="btn btn-block btn-lg btn-primary" type="submit" name="create" value="{$lang['create']}" />
-				</form>
+				<div class="well-sm">
+					<form method="post" action="index.php?site=iserverbackup">
+						<input class="btn btn-block btn-lg btn-primary" type="submit" name="create" value="{$lang['create']}" />
+					</form>
+				</div>
 			</div>
 			<div class="col-md-3">
-				<form method="post" action="index.php?site=iserverbackup">
-					<input type="hidden" name="hostbackup" value="1" />
-					<input class="btn btn-block btn-lg btn-primary" type="submit" name="create" value="{$lang['host']} {$lang['create']}" />
-				</form>
+				<div class="well-sm">
+					<form method="post" action="index.php?site=iserverbackup">
+						<input type="hidden" name="hostbackup" value="1" />
+						<input class="btn btn-block btn-lg btn-primary" type="submit" name="create" value="{$lang['host']} {$lang['create']}" />
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
