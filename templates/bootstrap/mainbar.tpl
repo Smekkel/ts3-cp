@@ -15,6 +15,12 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 {if $loginstatus === true AND $site !==login}
+                    {if $hoststatus === true}
+                        <li><a href="index.php?site=server"><span class="glyphicon glyphicon-th-list"></span> {$lang['serverlist']}</a></li>
+                    {/if}
+                    {if isset($sid) AND $hoststatus === false}
+                        <li><a href="index.php?site=serverview&sid={$sid}"><span class="glyphicon glyphicon-bookmark"></span> {$lang['my-server']}</a></li>
+                    {/if}
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-hdd"></span> {$lang['server']} <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
@@ -45,7 +51,7 @@
                     </li>
                     {if isset($sid)}
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-list"></span> {$lang['channel']} <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-align-left"></span> {$lang['channel']} <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="index.php?site=channel&amp;sid={$sid}">{$lang['channellist']}</a></li>
                                 <li><a href="index.php?site=createchannel&amp;sid={$sid}">{$lang['createchannel']}</a></li>
@@ -66,7 +72,7 @@
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-remove-circle"></span> {$lang['bans']} <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-minus-sign"></span> {$lang['bans']} <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="index.php?site=banlist&amp;sid={$sid}">{$lang['banlist']}</a></li>
                                 <li><a href="index.php?site=banadd&amp;sid={$sid}">{$lang['addban']}</a></li>
@@ -109,19 +115,19 @@
 
             <ul class="nav navbar-nav navbar-right data-no-collapse="true">
             {if isset($sid)}
-                <li><a href="index.php?site=console&amp;sid={$sid}"><span class="glyphicon glyphicon-wrench"></span> {$lang['queryconsole']}</a></li>
+                <li><a href="index.php?site=console&amp;sid={$sid}"><span class="glyphicon glyphicon-console"></span> {$lang['queryconsole']}</a></li>
             {/if}
             {if $fastswitch == true AND $hoststatus === true}
                 <li><a href="#server-switch" data-toggle="modal"><span class="glyphicon glyphicon-sort"></span> {$lang['switch-server']}</a></li>
             {/if}
-            {* {if isset($sid)}
-                <li><a href="index.php?site=serverview&sid={$sid}"><span class="glyphicon glyphicon-bookmark"></span> {$lang['my-server']}</a></li>
-            {/if} *}
             <li class="dropdown">
                 <a href="" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user" style="margin-right: 10px"> </span> {$smarty.session.loginuser}<span class="caret" style="margin-left: 10px"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                    {if isset($sid)}<li><a href="index.php?site=console&amp;sid={$sid}">{$lang['queryconsole']}</a></li>{/if}
-                    <li><a href="#msgtoall" data-toggle="modal">{$lang['msgtoallmenu']}</a></li>
+                    {if isset($sid)}<li><a href="index.php?site=console&amp;sid={$sid}"><span class="glyphicon glyphicon-console"></span> {$lang['queryconsole']}</a></li>{/if}
+                    {if $hoststatus === true}<li><a href="#msgtoall" data-toggle="modal"><span class="glyphicon glyphicon-envelope"></span> {$lang['msgtoallmenu']}</a></li>{/if}
+                    {if isset($sid) AND $serverinfo['virtualserver_status'] == "online"}<li><a href="#msgtosrv" data-toggle="modal"><span class="glyphicon glyphicon-envelope"></span>  {$lang['msgtosrvmenu']}</a></li>{/if}
+                    {if $hoststatus === true}<li><a href="index.php?site=server"><span class="glyphicon glyphicon-th-list"></span> {$lang['serverlist']}</a></li>{/if}
+                    {if isset($sid) AND $hoststatus === false} <li><a href="index.php?site=serverview&sid={$sid}"><span class="glyphicon glyphicon-bookmark"></span> {$lang['my-server']}</a></li>{/if}
                     <li class="divider"></li>
                     <li><a href="index.php?site=logout"><span class="glyphicon glyphicon-log-out"> </span> {$lang['logout']}</a></li>
                 </ul>
@@ -131,6 +137,7 @@
     {/if}
 </div>
 <!-- Modal -->
+{* modal server-switcher *}
 <div class="modal fade" tabindex="-1" id="server-switch" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -163,6 +170,7 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+{* Modal msg to all servers *}
 <div class="modal fade" tabindex="-1" role="dialog" id="msgtoall">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -172,12 +180,33 @@
                 <h4 class="modal-title">{$lang['msgtoall']}</h4>
             </div>
             <div class="modal-body">
-                    <textarea class="form-control vertresize" type="text" name="msgtoall" rows="3" placeholder="{$lang['msgtexthere']}"></textarea>
+                <textarea class="form-control vertresize" name="msgtoall" rows="3" placeholder="{$lang['msgtexthere']}"></textarea>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">{$lang['close']}</button>
-                <button type="button" class="btn btn-primary" type="submit" name="sendmsg">{$lang['send']}</button>
+                <button class="btn btn-primary" type="submit" name="sendmsg">{$lang['send']}</button>
             </div>
+           </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+{* Modal msg to specific server *}
+<div class="modal fade" tabindex="-1" role="dialog" id="msgtosrv">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" action="index.php?site=serverview&amp;sid={$sid}">
+                <input type="hidden" name="sid" value="{$serverinfo['virtualserver_id']}" />
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">{$lang['msgtoserver']}</h4>
+                </div>
+                <div class="modal-body">
+                    <textarea class="form-control vertresize" name="msgtoserver" rows="3" placeholder="{$lang['msgtexthere']}"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{$lang['close']}</button>
+                    <button class="btn btn-primary" type="submit" name="sendmsg">{$lang['send']}</button>
+                </div>
             </form>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

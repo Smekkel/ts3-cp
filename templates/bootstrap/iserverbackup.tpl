@@ -32,7 +32,6 @@
 	{* Vitrual server backups panel *}
 	<div class="panel panel-primary">
 		<div class="panel-heading">{$lang['serverbackups']}</div>
-		<div class="panel-body">
 			<div class="table-responsive">
 				<table class="table table-bordered">
 					<thead>
@@ -52,7 +51,7 @@
 									<td colspan="2" class="{$td_col}">
 										<form method="post" action="index.php?site=iserverbackup">
 											<input type="hidden" name="backupdate" value="{$value}" />
-											<input class="btn btn-sm btn-primary center-block" type="submit" name="chose" value="Ausw&auml;hlen" />
+											<input class="btn btn-sm btn-primary center-block" type="submit" name="chose" value="{$lang['select']}" />
 										</form>
 									</td>
 								</tr>
@@ -91,7 +90,7 @@
 								{/foreach}
 							{else}
 								<tr>
-									<td colspan="3" class="warning">{$lang['nobackups']}</td>
+									<td colspan="3" class="warning">{$lang['nodatebackups']}</td>
 								</tr>
 							{/if}
 						{/if}
@@ -103,12 +102,10 @@
 					</tbody>
 				</table>
 			</div>
-		</div>
 	</div>
 	{* Host backups panel *}
 	<div class="panel panel-primary">
 		<div class="panel-heading">{$lang['host']} {$lang['serverbackups']}</div>
-		<div class="panel-body">
 			<div class="table-responsive">
 				<table class="table table-bordered">
 					<thead>
@@ -128,7 +125,7 @@
 									<td colspan="2" class="{$td_col}">
 										<form method="post" action="index.php?site=iserverbackup">
 											<input type="hidden" name="backupdate" value="{$value}" />
-											<input class="btn btn-sm btn-primary center-block" type="submit" name="chose" value="Ausw&auml;hlen" />
+											<input class="btn btn-sm btn-primary center-block" type="submit" name="chose" value="{$lang['select']}" />
 										</form>
 									</td>
 								</tr>
@@ -167,7 +164,7 @@
 								{/foreach}
 							{else}
 								<tr>
-									<td colspan="3" class="warning">{$lang['nobackups']}</td>
+									<td colspan="3" class="warning">{$lang['nodatebackups']}</td>
 								</tr>
 							{/if}
 						{/if}
@@ -179,7 +176,6 @@
 					</tbody>
 				</table>
 			</div>
-		</div>
 	</div>
 </div>
 	<div class="container-fluid">
@@ -198,6 +194,11 @@
 						<input class="btn btn-block btn-lg btn-primary" type="submit" name="create" value="{$lang['host']} {$lang['create']}" />
 					</form>
 				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="well-sm">
+				<a class="btn btn-default" href="index.php?site=iserverbackup">{$lang['getback']}</a>
 			</div>
 		</div>
 	</div>

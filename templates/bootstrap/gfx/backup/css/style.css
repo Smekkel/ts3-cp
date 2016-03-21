@@ -81,11 +81,3 @@ body
     min-width: 250px;
     max-width: 500px;
 }
-.viewer-code-copy {
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-}
-.viewer-code-box {
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-}

@@ -1,8 +1,13 @@
 body
 	{
+	background-color:#808080;
     padding-top: 70px;
     padding-bottom: 40px;
 	}
+
+.topspacer {
+    padding-top: 10px;
+}
 
 /* Login page */
 .form-signin {
@@ -45,13 +50,6 @@ body
 .btn-select{
     float:right;
 }
-.btn-querysend {
-    height: 74px;
-}
-.btn-createserver {
-    height: 90px;
-    width: 70%;
-}
 .navbar{
     padding-right: 5px;
 }
@@ -64,28 +62,9 @@ body
 .mass-sel {
     height: 40px;
 }
-.maincat
-{
+.maincat {
     text-align:center;
 }
 .marginb100 {
     margin-bottom: 100px;
-}
-.margintop10 {
-    margin-top: 10px;
-}
-.vertresize {
-    resize: vertical;
-}
-.minwidth {
-    min-width: 250px;
-    max-width: 500px;
-}
-.viewer-code-copy {
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-}
-.viewer-code-box {
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
 }
