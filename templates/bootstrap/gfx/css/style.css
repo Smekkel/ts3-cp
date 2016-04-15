@@ -89,3 +89,20 @@ body
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
 }
+.btn-borderless {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+.btn-borderless-bottom {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+.btn-borderless-up {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+.td-half {
+    width: 50%;
+}

@@ -14,184 +14,335 @@
 {/if}
 
 <div class="container">
-    <div class="jumbotron">
-        <h3>{$lang['editor']}: {$lang['virtualserver']} #<b>{$serverinfo['virtualserver_id']}</b> </h3>
-    </div>
-    <div class="row">
-        <div class="col-md-8">
-            {* Open edit form *}
-            <form method="post" class="form-horizontal" action="index.php?site=serveredit&amp;sid={$sid}">
-                {* First Group (opened by default*}
-                <div class="panel-group" id="accordion">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <button type="button" class="btn btn-info btn-block" data-toggle="collapse" data-parent="#group1" href="#group1">
-                                    First Group
-                                </button>
-                            </h4>
-                        </div>
-                        <div id="group1" class="panel-collapse collapse in">
-                            <div class="panel-body">
-                                {* 1-1 *}
-                                <div class="form-group">
-                                    <label for="server-name" class="col-sm-3 control-label">{$lang['name']}</label>
-                                    <div class="col-sm-9">
-                                        {if isset($permoverview['b_virtualserver_modify_name']) AND empty($permoverview['b_virtualserver_modify_name'])}
-                                            -
-                                        {else}
-                                            <input type="text" class="form-control" name="newsettings[virtualserver_name]" value="{$serverinfo['virtualserver_name']}" />
-                                        {/if}
-                                    </div>
-                                </div>
-                                {* 1-1 *}
-                                {* 1-2 *}
-                                <div class="form-group">
-                                    <label for="server-slots" class="col-sm-3 control-label">{$lang['maxclients']}</label>
-                                    <div class="col-sm-9">
-                                        {if isset($permoverview['b_virtualserver_modify_maxclients']) AND empty($permoverview['b_virtualserver_modify_maxclients'])}
-                                            -
-                                        {else}
-                                            <input type="text" class="form-control" name="newsettings[virtualserver_maxclients]" value="{$serverinfo['virtualserver_maxclients']}" />
-                                        {/if}
-                                    </div>
-                                </div>
-                                {* 1-2 *}
-                                {* 1-3 *}
-                                <div class="form-group">
-                                    <label for="server-res-slots" class="col-sm-3 control-label">{$lang['maxreservedslots']}</label>
-                                    <div class="col-sm-9">
-                                        {if isset($permoverview['b_virtualserver_modify_reserved_slots']) AND empty($permoverview['b_virtualserver_modify_reserved_slots'])}
-                                            -
-                                        {else}
-                                            <input type="text" class="form-control" name="newsettings[virtualserver_reserved_slots]" value="{$serverinfo['virtualserver_reserved_slots']}" />
-                                        {/if}
-                                    </div>
-                                </div>
-                                {* 1-3 *}
-                                {* 1-4 *}
-                                <div class="form-group">
-                                    <label for="server-pass-check" class="col-sm-3 control-label">{$lang['passwordset']}</label>
-                                    <div class="col-sm-9">
-                                        {if isset($permoverview['b_virtualserver_modify_password']) AND empty($permoverview['b_virtualserver_modify_password'])}
-                                            -
-                                        {else}
-                                            {if $serverinfo['virtualserver_flag_password'] == 1}
-                                                <button type="button" class="btn btn-success btn-block disabled">{$lang['yes']}</button>
-                                            {else}
-                                                <button type="button" class="btn btn-default btn-block disabled">{$lang['no']}</button>
-                                            {/if}
-                                        {/if}
-                                    </div>
-                                </div>
-                                {* 1-4 *}
-                                {* 1-5 *}
-                                <div class="form-group">
-                                    <label for="server-min-client-version" class="col-sm-3 control-label">{$lang['minclientversion']}</label>
-                                    <div class="col-sm-9">
-                                        {if isset($permoverview['b_virtualserver_modify_min_client_version']) AND empty($permoverview['b_virtualserver_modify_min_client_version'])}
-                                            -
-                                        {else}
-                                            <input type="text" class="form-control" name="newsettings[virtualserver_min_client_version]" value="{$serverinfo['virtualserver_min_client_version']}" />
-                                        {/if}
-                                    </div>
-                                </div>
-                                {* 1-5 *}
-                                {* 1-6 *}
-                                <div class="form-group">
-                                    <label for="server-codec" class="col-sm-3 control-label">{$lang['codecencryptionmode']}</label>
-                                    <div class="col-sm-9">
-                                        {if isset($permoverview['b_virtualserver_modify_codec_encryption_mode']) AND empty($permoverview['b_virtualserver_modify_codec_encryption_mode'])}
-                                            -
-                                        {else}
-                                            <select class="form-control" name="newsettings[virtualserver_codec_encryption_mode]">
-                                                <option value="0" {if $serverinfo['virtualserver_codec_encryption_mode'] == 0}selected='selected'{/if}>{$lang['codecencryptionmodeindi']}</option>
-                                                <option value="1" {if $serverinfo['virtualserver_codec_encryption_mode'] == 1}selected='selected'{/if}>{$lang['codecencryptionmodegoff']}</option>
-                                                <option value="2" {if $serverinfo['virtualserver_codec_encryption_mode'] == 2}selected='selected'{/if}>{$lang['codecencryptionmodegon']}</option>
-                                            </select>
-                                        {/if}
-                                    </div>
-                                </div>
-                                {* 1-6 *}
-                                {* 1-7 *}
-                                <div class="form-group">
-                                    <label for="server-welcome-msg" class="col-sm-3 control-label">{$lang['welcomemsg']}</label>
-                                    <div class="col-sm-9">
-                                        {if isset($permoverview['b_virtualserver_modify_welcomemessage']) AND empty($permoverview['b_virtualserver_modify_welcomemessage'])}
-                                            -
-                                        {else}
-                                            <textarea class="form-control" name="newsettings[virtualserver_welcomemessage]" rows="3">{$serverinfo['virtualserver_welcomemessage']}</textarea>
-                                        {/if}
-                                    </div>
-                                </div>
-                                {* 1-7 *}
-                                {* 1-8 *}
-                                <div class="form-group">
-                                    <label for="server-public-check" class="col-sm-3 control-label">{$lang['showonweblist']}</label>
-                                    <div class="col-sm-9">
-                                        {if isset($permoverview['b_virtualserver_modify_weblist']) AND empty($permoverview['b_virtualserver_modify_weblist'])}
-                                            -
-                                        {else}
-                                            <select class="form-control" name="newsettings[virtualserver_weblist_enabled]">
-                                                <option value="1" {if $serverinfo['virtualserver_weblist_enabled'] == 1}selected="selected"{/if}>{$lang['yes']}</option>
-                                                <option value="0" {if $serverinfo['virtualserver_weblist_enabled'] == 0}selected="selected"{/if}>{$lang['no']}</option>
-                                            </select>
-                                        {/if}
-                                    </div>
-                                </div>
-                                {* 1-8 *}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                {* End first group*}
-                 {* Open second group *}
-                <div class="panel-group" id="accordion">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <button type="button" class="btn btn-info btn-block" data-toggle="collapse" data-parent="#group2" href="#group2">
-                                    Second group (in dev)
-                                </button>
-                            </h4>
-                        </div>
-                        <div id="group2" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                {* 2-1 *}
-                                <div class="form-group">
-                                    <label for="server-name" class="col-sm-3 control-label">{$lang['name']}</label>
-                                    <div class="col-sm-9">
-                                        {if isset($permoverview['b_virtualserver_modify_name']) AND empty($permoverview['b_virtualserver_modify_name'])}
-                                            -
-                                        {else}
-                                            <input type="text" class="form-control" name="newsettings[virtualserver_name]" value="{$serverinfo['virtualserver_name']}" />
-                                        {/if}
-                                    </div>
-                                </div>
-                                {* 2-1 *}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {* End second group*}
-            </form>
-            {* Edit form end *}
-        </div>
-        <div class="col-md-4">
-            {if !isset($permoverview['b_virtualserver_modify_password']) OR $permoverview['b_virtualserver_modify_password'] == 1}
-            <form method="post" action="index.php?site=serveredit&amp;sid={$sid}">
-                <h5>{$lang['serverpassword']}</h5>
-                <div class="input-group">
-                    <input type="text" class="form-control" name="newsettings[virtualserver_password]" placeholder="{$lang['newpassword']}">
-                      <span class="input-group-btn">
-                        <button class="btn btn-success" type="submit" name="editpw">{$lang['setpswd']}</button>
-                      </span>
-                </div>
-            </form>
-            {/if}
-        </div>
-    </div>
+	<div class="well-sm">
+		<h4>{$lang['virtualserver']} <span class="label label-danger"># {$serverinfo['virtualserver_id']}</span></h4>
+		<p>{$lang['editor']}</p>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			{if !isset($permoverview['b_virtualserver_modify_password']) OR $permoverview['b_virtualserver_modify_password'] == 1}
+			<div class="container-fluid">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<div class="panel-title">{$lang['serverpassword']}</div>
+					</div>
+					<div class="panel-body">
+						<form method="post" action="index.php?site=serveredit&amp;sid={$sid}">
+							<div class="input-group">
+								<input type="password" class="form-control" name="newsettings[virtualserver_password]" placeholder="{$lang['newpassword']}">
+								  <span class="input-group-btn">
+									<button class="btn btn-success" type="submit" name="editpw">{$lang['setpswd']}</button>
+								  </span>
+							</div><!-- /input-group -->
+						</form>
+					</div>
+				</div>
+			</div>
+			{else}
+			<div class="container-fluid">
+				<div class="alert alert-dismissable alert-success">
+					{$lang['nopasspermissions']}
+				</div>
+			</div>
+			{/if}
+		</div>
+		<div class="col-md-8">
+				<div class="container-fluid">
+					<form method="post" action="index.php?site=serveredit&amp;sid={$sid}" class="form-horizontal">
+					<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+					{*Basic group*}
+					<div class="panel panel-primary">
+						<div class="panel-heading" role="tab" id="headingbasics">
+							<h4 class="panel-title">
+								<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsebasics" aria-expanded="true" aria-controls="collapsebasics">
+									{$lang['basics']} <span class="glyphicon glyphicon-menu-down"></span>
+								</a>
+							</h4>
+						</div>
+						<div id="collapsebasics" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingbasics">
+							<div class="panel-body">
+								{*{if isset($permoverview['b_virtualserver_modify_autostart']) AND empty($permoverview['b_virtualserver_modify_autostart'])}-{else}
+								<div class="form-group">
+									<label for="autostart" class="col-sm-5 control-label">{$lang['autostart']}</label>
+									<div class="col-sm-6">
+										<select id="autostart" class="form-control" name="newsettings[newsettings[virtualserver_autostart]]">
+											<option {if $serverinfo['virtualserver_autostart'] === '0'}selected{/if} value="0">{$lang['no']}</option>
+											<option {if $serverinfo['virtualserver_autostart'] === '1'}selected{/if} value="1">{$lang['yes']}</option>
+										</select>
+									</div>
+								</div>
+								{/if} *}
+								{if isset($permoverview['b_virtualserver_modify_autostart']) AND empty($permoverview['b_virtualserver_modify_autostart'])}-{else}
+									<div class="form-group">
+										<label for="autostart" class="col-sm-5 control-label">{$lang['autostart']}</label>
+										<div class="col-sm-6">
+											<div class="btn-group btn-group-justified" data-toggle="buttons">
+												<label class="btn btn-default {if $serverinfo['virtualserver_autostart'] === '1'}active{/if}">
+													<input type="radio" name="newsettings[newsettings[virtualserver_autostart]]" autocomplete="off" {if $serverinfo['virtualserver_autostart'] === '1'}checked{/if} value="1"> {$lang['yes']}
+												</label>
+												<label class="btn btn-default {if $serverinfo['virtualserver_autostart'] === '0'}active{/if}">
+													<input type="radio" name="newsettings[newsettings[virtualserver_autostart]]" autocomplete="off" {if $serverinfo['virtualserver_autostart'] === '0'}checked{/if} value="0"> {$lang['no']}
+												</label>
+											</div>
+										</div>
+									</div>
+								{/if}
+								{if isset($permoverview['b_virtualserver_modify_port']) AND empty($permoverview['b_virtualserver_modify_port'])}-{else}
+								{*Element separator*}
+								<div class="form-group">
+									<label for="port" class="col-sm-5 control-label">{$lang['port']}</label>
+									<div class="col-sm-6">
+										<input type="text" id="port" name="newsettings[virtualserver_port]" class="form-control" value="{$serverinfo['virtualserver_port']}">
+									</div>
+								</div>
+								{/if}
+								{if isset($permoverview['b_virtualserver_modify_min_client_version']) AND empty($permoverview['b_virtualserver_modify_min_client_version'])}-{else}
+								{*Element separator*}
+								<div class="form-group">
+									<label for="minclientversion" class="col-sm-5 control-label">{$lang['minclientversion']}</label>
+									<div class="col-sm-6">
+										<input type="text" id="minclientversion" name="newsettings[virtualserver_min_client_version]" class="form-control" value="{$serverinfo['virtualserver_min_client_version']}">
+									</div>
+								</div>
+								{/if}
+								{if isset($permoverview['b_virtualserver_modify_name']) AND empty($permoverview['b_virtualserver_modify_name'])}-{else}
+								{*Element separator*}
+								<div class="form-group">
+									<label for="name" class="col-sm-5 control-label">{$lang['name']}</label>
+									<div class="col-sm-6">
+										<input type="text" id="name" name="newsettings[virtualserver_name]" class="form-control" value="{$serverinfo['virtualserver_name']}">
+									</div>
+								</div>
+								{/if}
+								{if isset($permoverview['b_virtualserver_modify_welcomemessage']) AND empty($permoverview['b_virtualserver_modify_welcomemessage'])}-{else}
+								{*Element separator*}
+								<div class="form-group">
+									<label for="welcomemsg" class="col-sm-5 control-label">{$lang['welcomemsg']}</label>
+									<div class="col-sm-6">
+										<textarea class="form-control vertresize" name="newsettings[virtualserver_welcomemessage]" rows="3">{$serverinfo['virtualserver_welcomemessage']}</textarea>
+									</div>
+								</div>
+								{/if}
+								{if isset($permoverview['b_virtualserver_modify_maxclients']) AND empty($permoverview['b_virtualserver_modify_maxclients'])}-{else}
+								{*Element separator*}
+								<div class="form-group">
+									<label for="maxclients" class="col-sm-5 control-label">{$lang['maxclients']}</label>
+									<div class="col-sm-6">
+										<input type="text" id="maxclients" name="newsettings[virtualserver_maxclients]" class="form-control" value="{$serverinfo['virtualserver_maxclients']}">
+									</div>
+								</div>
+								{/if}
+								{if isset($permoverview['b_virtualserver_modify_reserved_slots']) AND empty($permoverview['b_virtualserver_modify_reserved_slots'])}-{else}
+								{*Element separator*}
+								<div class="form-group">
+									<label for="maxreservedslots" class="col-sm-5 control-label">{$lang['maxreservedslots']}</label>
+									<div class="col-sm-6">
+										<input type="text" id="maxreservedslots" name="newsettings[virtualserver_reserved_slots]" class="form-control" value="{$serverinfo['virtualserver_reserved_slots']}">
+									</div>
+								</div>
+								{/if}
+								{if isset($permoverview['b_virtualserver_modify_weblist']) AND empty($permoverview['b_virtualserver_modify_weblist'])}-{else}
+								{*Element separator*}
+								<div class="form-group">
+									<label for="showonweblist" class="col-sm-5 control-label">{$lang['showonweblist']}</label>
+									<div class="col-sm-6">
+										<div class="btn-group btn-group-justified" data-toggle="buttons">
+											<label class="btn btn-default {if $serverinfo['virtualserver_weblist_enabled'] === '1'}active{/if}">
+												<input type="radio" name="newsettings[newsettings[virtualserver_weblist_enabled]]" autocomplete="off" {if $serverinfo['virtualserver_weblist_enabled'] === '1'}checked{/if} value="1"> {$lang['yes']}
+											</label>
+											<label class="btn btn-default {if $serverinfo['virtualserver_weblist_enabled'] === '0'}active{/if}">
+												<input type="radio" name="newsettings[newsettings[virtualserver_weblist_enabled]]" autocomplete="off" {if $serverinfo['virtualserver_weblist_enabled'] === '0'}checked{/if} value="0"> {$lang['no']}
+											</label>
+										</div>
+									</div>
+								</div>
+								{/if}
+								{if isset($permoverview['b_virtualserver_modify_codec_encryption_mode']) AND empty($permoverview['b_virtualserver_modify_codec_encryption_mode'])}-{else}
+								{*Element separator*}
+								<div class="form-group">
+									<label for="codecencryptionmode" class="col-sm-5 control-label">{$lang['codecencryptionmode']}</label>
+									<div class="col-sm-6">
+										<select id="codecencryptionmode" class="form-control" name="newsettings[newsettings[virtualserver_codec_encryption_mode]]">
+											<option {if $serverinfo['virtualserver_codec_encryption_mode'] === '0'}selected{/if} value="0">{$lang['codecencryptionmodeindi']}</option>
+											<option {if $serverinfo['virtualserver_codec_encryption_mode'] === '1'}selected{/if} value="1">{$lang['codecencryptionmodegoff']}</option>
+											<option {if $serverinfo['virtualserver_codec_encryption_mode'] === '2'}selected{/if} value="2">{$lang['codecencryptionmodegon']}</option>
+										</select>
+									</div>
+								</div>
+								{/if}
+								{if isset($permoverview['b_virtualserver_modify_password']) AND empty($permoverview['b_virtualserver_modify_password'])}-{else}
+								{*Element separator*}
+								<div class="form-group">
+									<label for="passwordset" class="col-sm-5 control-label">{$lang['passwordset']}</label>
+									<div class="col-sm-6">
+										{if $serverinfo['virtualserver_flag_password'] == 1}
+											<button class="btn btn-block btn-success disabled">{$lang['yes']}</button>
+										{else}
+											<button class="btn btn-block btn-default disabled">{$lang['no']}</button>
+										{/if}
+									</div>
+								</div>
+								{/if}
+								{if isset($permoverview['b_virtualserver_modify_needed_identity_security_level']) AND empty($permoverview['b_virtualserver_modify_needed_identity_security_level'])}-{else}
+								{*Element separator*}
+								<div class="form-group">
+									<label for="securitylevel" class="col-sm-5 control-label">{$lang['securitylevel']}</label>
+									<div class="col-sm-6">
+										<input type="text" id="securitylevel" name="newsettings[virtualserver_needed_identity_security_level]" class="form-control" value="{$serverinfo['virtualserver_needed_identity_security_level']}">
+									</div>
+								</div>
+								{/if}
+								{if isset($permoverview['b_virtualserver_modify_channel_forced_silence']) AND empty($permoverview['b_virtualserver_modify_channel_forced_silence'])}-{else}
+								{*Element separator*}
+								<div class="form-group">
+									<label for="minclientschan" class="col-sm-5 control-label">{$lang['minclientschan']}</label>
+									<div class="col-sm-6">
+										<input type="text" id="minclientschan" name="newsettings[virtualserver_min_clients_in_channel_before_forced_silence]" class="form-control" value="{$serverinfo['virtualserver_min_clients_in_channel_before_forced_silence']}">
+									</div>
+								</div>
+								{/if}
+								{if isset($permoverview['b_virtualserver_modify_icon_id']) AND empty($permoverview['b_virtualserver_modify_icon_id'])}-{else}
+								{*Element separator*}
+								<div class="form-group">
+									<label for="iconid" class="col-sm-5 control-label">{$lang['iconid']}</label>
+									<div class="col-sm-6">
+										<div class="input-group">
+											<input id="iconid" type="text" class="form-control" name="newsettings[virtualserver_icon_id]" placeholder="{$serverinfo['virtualserver_icon_id']}">
+											  <span class="input-group-btn">
+												<a class="btn btn-success" href="javascript:oeffnefenster('site/showallicons.php?ip={$smarty.session.server_ip}&amp;sid={$sid}&amp;port={$serverinfo['virtualserver_port']}');" name="newsettings[virtualserver_icon_id]">{$lang['set']}</a>
+											  </span>
+										</div><!-- /input-group -->
+									</div>
+								</div>
+								{/if}
+							</div>
+						</div>
+					</div>
+					{*Standart groups*}
+					<div class="panel panel-primary">
+						<div class="panel-heading" role="tab" id="hstandardgroups">
+							<h4 class="panel-title">
+								<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#cstandardgroups" aria-expanded="false" aria-controls="cstandardgroups">
+									{$lang['standardgroups']} <span class="glyphicon glyphicon-menu-down"></span>
+								</a>
+							</h4>
+						</div>
+						<div id="cstandardgroups" class="panel-collapse collapse" role="tabpanel" aria-labelledby="hstandardgroups">
+							<div class="panel-body">
+								222
+							</div>
+						</div>
+					</div>
+					{*host settings*}
+					<div class="panel panel-primary">
+						<div class="panel-heading" role="tab" id="headinghost">
+							<h4 class="panel-title">
+								<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsehost" aria-expanded="false" aria-controls="collapsehost">
+									{$lang['host']} <span class="glyphicon glyphicon-menu-down"></span>
+								</a>
+							</h4>
+						</div>
+						<div id="collapsehost" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headinghost">
+							<div class="panel-body">
+								333
+							</div>
+						</div>
+					</div>
+					{*ban settings*}
+					<div class="panel panel-primary">
+						<div class="panel-heading" role="tab" id="headingautoban">
+							<h4 class="panel-title">
+								<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseautoban" aria-expanded="false" aria-controls="collapseautoban">
+									{$lang['autoban']} <span class="glyphicon glyphicon-menu-down"></span>
+								</a>
+							</h4>
+						</div>
+						<div id="collapseautoban" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingautoban">
+							<div class="panel-body">
+								555
+							</div>
+						</div>
+					</div>
+					{*anti-flood settings*}
+					<div class="panel panel-primary">
+						<div class="panel-heading" role="tab" id="headingantiflood">
+							<h4 class="panel-title">
+								<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseantiflood" aria-expanded="false" aria-controls="collapseantiflood">
+									{$lang['antiflood']} <span class="glyphicon glyphicon-menu-down"></span>
+								</a>
+							</h4>
+						</div>
+						<div id="collapseantiflood" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingantiflood">
+							<div class="panel-body">
+								777
+							</div>
+						</div>
+					</div>
+					{*trasnfers*}
+					<div class="panel panel-primary">
+						<div class="panel-heading" role="tab" id="headingtransfers">
+							<h4 class="panel-title">
+								<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsetransfers" aria-expanded="false" aria-controls="collapsetransfers">
+									{$lang['transfers']} <span class="glyphicon glyphicon-menu-down"></span>
+								</a>
+							</h4>
+						</div>
+						<div id="collapsetransfers" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingtransfers">
+							<div class="panel-body">
+								999
+							</div>
+						</div>
+					</div>
+					{*logs*}
+					<div class="panel panel-primary">
+						<div class="panel-heading" role="tab" id="headinglogs">
+							<h4 class="panel-title">
+								<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapselogs" aria-expanded="false" aria-controls="collapselogs">
+									{$lang['logs']} <span class="glyphicon glyphicon-menu-down"></span>
+								</a>
+							</h4>
+						</div>
+						<div id="collapselogs" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headinglogs">
+							<div class="panel-body">
+								13131
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+				<div class="container-fluid">
+					<input class="btn btn-success btn-block btn-lg" type="submit" name="createserver" value="{$lang['create']}"/>
+				</div>
+		</div>
+		</div>
+	</div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <hr>
 <table style="width:100%" cellpadding="1" cellspacing="0">
 	<tr valign="top">

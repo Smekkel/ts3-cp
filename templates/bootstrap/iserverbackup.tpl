@@ -1,6 +1,5 @@
 {if $hoststatus === false AND $serverhost === true}
-	<div class="container" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
-		 xmlns="http://www.w3.org/1999/html">
+	<div class="container">
 		<div class="alert alert-danger" role="alert">
 			<b>{$lang['nohoster']}</b>
 		</div>

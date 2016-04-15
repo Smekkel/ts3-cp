@@ -16,7 +16,7 @@ if(isset($_POST['create']))
 	{
 	if($_POST['password']!='' AND $_POST['duration']!='')
 		{
-		if($ts3->getElement('success', $ts3->serverTemppasswordAdd($_POST['password'], $_POST['duration'], $_POST['tcid'], $_POST['description'])))
+		if($ts3->getElement('success', $ts3->serverTempPasswordAdd($_POST['password'], $_POST['duration'], $_POST['description'], $_POST['tcid'], null)))
 			{
 			$noerror.=$lang['temppwcnoerr']."<br />";
 			}

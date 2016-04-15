@@ -6,63 +6,67 @@
         <div class="row">
             <div class="col-md-4">
                 {if !isset($smarty.get.refresh) OR $smarty.get.refresh == on}
-                    <a href="index.php?site=servertraffic&amp;refresh=off" type="button" style="margin-bottom: 10px" class="btn btn-info btn-block">{$lang['stoprefresh']}</a>
+                    <a href="index.php?site=servertraffic&amp;refresh=off" type="button" style="margin-bottom: 10px" class="btn btn-primary btn-block">{$lang['stoprefresh']}</a>
                 {else}
-                    <a href="index.php?site=servertraffic&amp;refresh=on" type="button" style="margin-bottom: 10px" class="btn btn-info btn-block">{$lang['autorefresh']}</a>
+                    <a href="index.php?site=servertraffic&amp;refresh=on" type="button" style="margin-bottom: 10px" class="btn btn-primary btn-block">{$lang['autorefresh']}</a>
                 {/if}
             </div>
             <div class="col-md-8">
-                <div class="table-responsive">
-                    <table class="table table-bordered">
-                        <tr>
-                            <th style="width:100%; text-align: center" class="thead" colspan="3">{$lang['instancetraffic']}</th>
-                        </tr>
-                        <tr>
-                            <td style="width:33%" class="thead">{$lang['description']}</td>
-                            <td style="width:33%" class="thead">{$lang['incoming']}</td>
-                            <td style="width:33%" class="thead">{$lang['outgoing']}</td>
-                        </tr>
-                        <tr>
-                            <td class="green1">{$lang['packetstransfered']}</td>
-                            <td class="green1 center">{$hostinfo['connection_packets_received_total']}</td>
-                            <td class="green1 center">{$hostinfo['connection_packets_sent_total']}</td>
-                        </tr>
-                        <tr>
-                            <td class="green2">{$lang['bytestransfered']}</td>
-                            <td class="green2 center">{$hostinfo['connection_bytes_received_total']}</td>
-                            <td class="green2 center">{$hostinfo['connection_bytes_sent_total']}</td>
-                        </tr>
-                        <tr>
-                            <td class="green1">{$lang['bandwidthlastsecond']}</td>
-                            <td class="green1 center">{$hostinfo['connection_bandwidth_received_last_second_total']} /s</td>
-                            <td class="green1 center">{$hostinfo['connection_bandwidth_sent_last_second_total']} /s</td>
-                        </tr>
-                        <tr>
-                            <td class="green2">{$lang['bandwidthlastminute']}</td>
-                            <td class="green2 center">{$hostinfo['connection_bandwidth_received_last_minute_total']} /s</td>
-                            <td class="green2 center">{$hostinfo['connection_bandwidth_sent_last_minute_total']} /s</td>
-                        </tr>
-                        <tr>
-                            <td class="green1">{$lang['filetransferbandwidth']}</td>
-                            <td class="green1 center">{$hostinfo['connection_filetransfer_bandwidth_received']} /s</td>
-                            <td class="green1 center">{$hostinfo['connection_filetransfer_bandwidth_sent']} /s</td>
-                        </tr>
-                    </table>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="panel-title">{$lang['instancetraffic']}</div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr class="bg-info">
+                                <th>{$lang['description']}</th>
+                                <th>{$lang['incoming']}</th>
+                                <th>{$lang['outgoing']}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="active">
+                                <td>{$lang['packetstransfered']}</td>
+                                <td>{$hostinfo['connection_packets_received_total']}</td>
+                                <td>{$hostinfo['connection_packets_sent_total']}</td>
+                            </tr>
+                            <tr>
+                                <td>{$lang['bytestransfered']}</td>
+                                <td>{$hostinfo['connection_bytes_received_total']}</td>
+                                <td>{$hostinfo['connection_bytes_sent_total']}</td>
+                            </tr>
+                            <tr class="active">
+                                <td>{$lang['bandwidthlastsecond']}</td>
+                                <td>{$hostinfo['connection_bandwidth_received_last_second_total']} /s</td>
+                                <td>{$hostinfo['connection_bandwidth_sent_last_second_total']} /s</td>
+                            </tr>
+                            <tr>
+                                <td>{$lang['bandwidthlastminute']}</td>
+                                <td>{$hostinfo['connection_bandwidth_received_last_minute_total']} /s</td>
+                                <td>{$hostinfo['connection_bandwidth_sent_last_minute_total']} /s</td>
+                            </tr>
+                            <tr class="active">
+                                <td>{$lang['filetransferbandwidth']}</td>
+                                <td>{$hostinfo['connection_filetransfer_bandwidth_received']} /s</td>
+                                <td>{$hostinfo['connection_filetransfer_bandwidth_sent']} /s</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
+
+
             </div>
         </div>
     </div>
 {else}
 {if isset($permoverview['b_virtualserver_info_view']) AND empty($permoverview['b_virtualserver_info_view'])}
-        <table align="center" style="width:50%" class="border" cellpadding="1" cellspacing="0">
-
-            <tr>
-                <td class="thead">{$lang['error']}</td>
-            </tr>
-            <tr>
-                <td class="green1">{$lang['nopermissions']}</td>
-            </tr>
-        </table>
+    <div class="container container-alert">
+        <div class="alert alert-dismissable alert-danger">
+            <h4><b>{$lang['error']} </b></h4>{$lang['nopermissions']}
+        </div>
+    </div>
 {else}
     {if !isset($smarty.get.refresh) OR $smarty.get.refresh == on}
         <meta http-equiv="refresh" content="3; URL=index.php?site=servertraffic&amp;sid={$sid}" />
@@ -71,47 +75,53 @@
         <div class="row">
             <div class="col-md-4">
                 {if !isset($smarty.get.refresh) OR $smarty.get.refresh == on}
-                    <a href="index.php?site=servertraffic&amp;sid={$sid}&amp;refresh=off" type="button" style="margin-bottom: 10px" class="btn btn-info btn-block">{$lang['stoprefresh']}</a>
+                    <a href="index.php?site=servertraffic&amp;sid={$sid}&amp;refresh=off" type="button" style="margin-bottom: 10px" class="btn btn-primary btn-block">{$lang['stoprefresh']}</a>
                 {else}
-                    <a href="index.php?site=servertraffic&amp;sid={$sid}&amp;refresh=on" type="button" style="margin-bottom: 10px" class="btn btn-info btn-block">{$lang['autorefresh']}</a>                {/if}
+                    <a href="index.php?site=servertraffic&amp;sid={$sid}&amp;refresh=on" type="button" style="margin-bottom: 10px" class="btn btn-primary btn-block">{$lang['autorefresh']}</a>                {/if}
             </div>
             <div class="col-md-8">
-                <div class="table-responsive">
-                    <table class="table table-bordered">
-                        <tr>
-                            <th style="width:100%; text-align: center" class="thead" colspan="3">{$lang['virtualtraffic']}</th>
-                        </tr>
-                        <tr>
-                            <td style="width:33%" class="thead">{$lang['description']}</td>
-                            <td style="width:33%" class="thead">{$lang['incoming']}</td>
-                            <td style="width:33%" class="thead">{$lang['outgoing']}</td>
-                        </tr>
-                        <tr>
-                            <td class="green1">{$lang['packetstransfered']}</td>
-                            <td class="green1 center">{$serverinfo['connection_packets_received_total']}</td>
-                            <td class="green1 center">{$serverinfo['connection_packets_sent_total']}</td>
-                        </tr>
-                        <tr>
-                            <td class="green2">{$lang['bytestransfered']}</td>
-                            <td class="green2 center">{$serverinfo['connection_bytes_received_total']}</td>
-                            <td class="green2 center">{$serverinfo['connection_bytes_sent_total']}</td>
-                        </tr>
-                        <tr>
-                            <td class="green1">{$lang['bandwidthlastsecond']}</td>
-                            <td class="green1 center">{$serverinfo['connection_bandwidth_received_last_second_total']} /s</td>
-                            <td class="green1 center">{$serverinfo['connection_bandwidth_sent_last_second_total']} /s</td>
-                        </tr>
-                        <tr>
-                            <td class="green2">{$lang['bandwidthlastminute']}</td>
-                            <td class="green2 center">{$serverinfo['connection_bandwidth_received_last_minute_total']} /s</td>
-                            <td class="green2 center">{$serverinfo['connection_bandwidth_sent_last_minute_total']} /s</td>
-                        </tr>
-                        <tr>
-                            <td class="green1">{$lang['filetransferbandwidth']}</td>
-                            <td class="green1 center">{$serverinfo['connection_filetransfer_bandwidth_received']} /s</td>
-                            <td class="green1 center">{$serverinfo['connection_filetransfer_bandwidth_sent']} /s</td>
-                        </tr>
-                    </table>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="panel-title">{$lang['virtualtraffic']}</div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr class="bg-info">
+                                    <th>{$lang['description']}</th>
+                                    <th>{$lang['incoming']}</th>
+                                    <th>{$lang['outgoing']}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="active">
+                                    <td>{$lang['packetstransfered']}</td>
+                                    <td>{$serverinfo['connection_packets_received_total']}</td>
+                                    <td>{$serverinfo['connection_packets_sent_total']}</td>
+                                </tr>
+                                <tr>
+                                    <td>{$lang['bytestransfered']}</td>
+                                    <td>{$serverinfo['connection_bytes_received_total']}</td>
+                                    <td>{$serverinfo['connection_bytes_sent_total']}</td>
+                                </tr>
+                                <tr class="active">
+                                    <td>{$lang['bandwidthlastsecond']}</td>
+                                    <td>{$serverinfo['connection_bandwidth_received_last_second_total']} /s</td>
+                                    <td>{$serverinfo['connection_bandwidth_sent_last_second_total']} /s</td>
+                                </tr>
+                                <tr>
+                                    <td>{$lang['bandwidthlastminute']}</td>
+                                    <td>{$serverinfo['connection_bandwidth_received_last_minute_total']} /s</td>
+                                    <td>{$serverinfo['connection_bandwidth_sent_last_minute_total']} /s</td>
+                                </tr>
+                                <tr class="active">
+                                    <td>{$lang['filetransferbandwidth']}</td>
+                                    <td>{$serverinfo['connection_filetransfer_bandwidth_received']} /s</td>
+                                    <td>{$serverinfo['connection_filetransfer_bandwidth_sent']} /s</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

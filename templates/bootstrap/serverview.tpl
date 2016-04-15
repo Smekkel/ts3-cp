@@ -57,10 +57,10 @@
                     <input type="hidden" name="sid" value="{$serverinfo['virtualserver_id']}" />
                     <div class="btn-group btn-group-justified" role="group" aria-label="...">
                         <div class="btn-group btn-group-lg" role="group">
-                            <button type="submit" name="start" class="btn btn-success {if $serverinfo['virtualserver_status'] == "online"}disabled{/if}">{$lang['start']}</button>
+                            <button type="submit" name="start" class="btn {if $serverinfo['virtualserver_status'] == "online"}btn-default disabled{else}btn-success{/if}">{$lang['start']}</button>
                         </div>
                         <div class="btn-group btn-group-lg" role="group">
-                            <button type="submit" name="stop" class="btn btn-danger {if $serverinfo['virtualserver_status'] != "online"}disabled{/if}" onclick="return confirm('{$lang['stopservermsg']}')">{$lang['stop']}</button>
+                            <button type="submit" name="stop" class="btn {if $serverinfo['virtualserver_status'] != "online"}btn-default disabled{else}btn-danger{/if}" onclick="return confirm('{$lang['stopservermsg']}')">{$lang['stop']}</button>
                         </div>
                     </div>
                 </form>
@@ -83,7 +83,7 @@
                 <pre class="viewer-code-box">{$pubtsview}</pre>
             </div>
             <div class="container-fluid">
-                <a href="#" type="button" class="disabled btn btn-sm btn-primary btn-block viewer-code-copy">{$lang['connectvserver']}</a>
+                <a href="ts3server://{$smarty.session.server_ip}?port={$serverinfo['virtualserver_port']}" type="button" class="btn btn-sm btn-primary btn-block viewer-code-copy">{$lang['connectvserver']}</a>
                 <pre class="viewer-code-box">{$tree}</pre>
             </div>
         </div>
@@ -97,7 +97,7 @@
                     <table class="table table-bordered">
                         <tbody>
                         <tr>
-                            <td class="active">{$lang['name']}:</td>
+                            <td class="active td-half">{$lang['name']}:</td>
                             <td class="active">{$serverinfo['virtualserver_name']}</td>
                         </tr>
                         <tr>
@@ -133,7 +133,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="active" style="width:50%">{$lang['minclientversion']}:</td>
+                            <td class="active td-half" style="width:50%">{$lang['minclientversion']}:</td>
                             <td class="active" style="width:50%">{$serverinfo['virtualserver_min_client_version']}</td>
                         </tr>
                         <tr>
@@ -180,7 +180,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="active">{$lang['codecencryptionmode']}:</td>
+                            <td class="active td-half">{$lang['codecencryptionmode']}:</td>
                             <td class="active">
                                 {if $serverinfo['virtualserver_codec_encryption_mode']==0}
                                     {$lang['codecencryptionmodeindi']}
@@ -224,7 +224,7 @@
                     <table class="table table-bordered">
                         <tbody>
                         <tr>
-                            <td class="active">{$lang['servergroup']}:</td>
+                            <td class="active td-half">{$lang['servergroup']}:</td>
                             <td class="active">
                                 {if !empty($servergroups)}
                                     {foreach key=key item=value from=$servergroups}
@@ -271,7 +271,7 @@
                         <table class="table table-bordered">
                             <tbody>
                             <tr>
-                                <td class="active">{$lang['hostmessage']}:</td>
+                                <td class="active td-half">{$lang['hostmessage']}:</td>
                                 <td class="active">{$serverinfo['virtualserver_hostmessage']}</td>
                             </tr>
                             <tr>
@@ -329,7 +329,7 @@
                         <table class="table table-bordered">
                             <tbody>
                             <tr>
-                                <td class="green2">{$lang['autobancount']}:</td>
+                                <td class="green2 td-half">{$lang['autobancount']}:</td>
                                 <td class="green2">{$serverinfo['virtualserver_complain_autoban_count']}</td>
                             </tr>
                             <tr>
@@ -353,7 +353,7 @@
                         <table class="table table-bordered">
                             <tbody>
                             <tr>
-                                <td class="active">{$lang['pointstickreduce']}:</td>
+                                <td class="active td-half">{$lang['pointstickreduce']}:</td>
                                 <td class="active">{$serverinfo['virtualserver_antiflood_points_tick_reduce']}</td>
                             </tr>
                             <tr>
@@ -377,7 +377,7 @@
                         <table class="table table-bordered">
                             <tbody>
                             <tr>
-                                <td class="active">{$lang['upbandlimit']}:</td>
+                                <td class="active td-half">{$lang['upbandlimit']}:</td>
                                 <td class="active">{$serverinfo['virtualserver_max_upload_total_bandwidth']} <span class="label label-primary">Byte/s</span></td>
                             </tr>
                             <tr>
@@ -404,7 +404,7 @@
                     <table class="table table-bordered">
                         <tbody>
                         <tr>
-                            <td class="active">{$lang['logclient']}:</td>
+                            <td class="active td-half">{$lang['logclient']}:</td>
                             <td class="active">
                                 {if $serverinfo['virtualserver_log_client'] == 1}
                                     {$lang['yes']}

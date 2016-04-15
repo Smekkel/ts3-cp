@@ -214,7 +214,8 @@ function confirmAction()
         <hr>
         {$footer}
         <h6 style="color: #b3b3b3">Панель от <strong><a href='http://www.ts3.cs-united.de'>Psychokiller</a></strong> </br>
-        Русский язык, дизайн, верстка - <strong><a href="http://ts3cloud.net">San3ko</a></strong> </br>
+        Русский язык, дизайн, верстка - <strong><a href="http://san3ko.com">San3ko</a></strong> </br>
+		При поддержке проекта <strong><a href="http://defnox.com">DEFNOX</a></strong> </br>
         Работает на <a href="http://getbootstrap.com/">Bootstrap</a> и <a href="http://jquery.com/">jQuery</a></h6>
     </div>
 <script language="JavaScript" type="text/javascript" src="gfx/js/wz_tooltip.js"></script>
