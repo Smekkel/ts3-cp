@@ -71,6 +71,9 @@ body
 .marginb100 {
     margin-bottom: 100px;
 }
+.marginb0 {
+    margin-bottom: 0px;
+}
 .margintop10 {
     margin-top: 10px;
 }
@@ -105,4 +108,7 @@ body
 }
 .td-half {
     width: 50%;
+}
+.disableсlick{
+    pointer-events: none;
 }

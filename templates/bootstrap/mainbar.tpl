@@ -41,9 +41,9 @@
                                 <li><a href="index.php?site=servertraffic&amp;sid={$sid}">{$lang['virtualtraffic']}</a></li>
                                 <li><a href="index.php?site=serveredit&amp;sid={$sid}">{$lang['serveredit']}</a></li>
                                 <li><a href="index.php?site=temppw&amp;sid={$sid}">{$lang['temppw']}</a></li>
-                                <li><a href="index.php?site=fileupload&amp;sid={$sid}">{$lang['iconupload']}</a></li>
+                                <li><a href="index.php?site=fileupload&amp;sid={$sid}">{$lang['servericons']}</a></li>
                                 <li><a href="index.php?site=logview&amp;sid={$sid}">{$lang['logview']}</a></li>
-                                <li><a href="index.php?site=filelist&amp;sid={$sid}">{$lang['filelist']}</a></li>
+                                <li><a href="index.php?site=filelist&amp;sid={$sid}">{$lang['serverfiles']}</a></li>
                                 <li class="divider"></li>
                                 <li><a href="javascript:oeffnefenster('site/interactive.php?sid={$sid}&amp;action=action');">{$lang['massaction']}</a></li>
                             {/if}
@@ -81,18 +81,19 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-book"></span> {$lang['groups']} <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
+                                <li><a href="index.php?site=token&amp;sid={$sid}">{$lang['token']}</a></li>
                                 <li><a href="index.php?site=sgroups&amp;sid={$sid}">{$lang['servergroups']}</a></li>
                                 <li><a href="index.php?site=sgroupadd&amp;sid={$sid}">{$lang['addservergroup']}</a></li>
                                 <li><a href="index.php?site=cgroups&amp;sid={$sid}">{$lang['channelgroups']}</a></li>
                                 <li><a href="index.php?site=cgroupadd&amp;sid={$sid}">{$lang['addchannelgroup']}</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown">
+                        {*<li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-tower"></span> {$lang['token']} <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="index.php?site=token&amp;sid={$sid}">{$lang['token']}</a></li>
                             </ul>
-                        </li>
+                        </li>*}
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-lock"></span> {$lang['backup']} <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
@@ -117,7 +118,7 @@
             {if isset($sid)}
                 <li><a href="index.php?site=console&amp;sid={$sid}"><span class="glyphicon glyphicon-console"></span> {$lang['queryconsole']}</a></li>
             {/if}
-            {if $fastswitch == true AND $hoststatus === true}
+            {if $fastswitch == true AND $hoststatus === true AND count($instances) != 1}
                 <li><a href="#server-switch" data-toggle="modal"><span class="glyphicon glyphicon-sort"></span> {$lang['switch-server']}</a></li>
             {/if}
             <li class="dropdown">

@@ -57,10 +57,10 @@
                     <input type="hidden" name="sid" value="{$serverinfo['virtualserver_id']}" />
                     <div class="btn-group btn-group-justified" role="group" aria-label="...">
                         <div class="btn-group btn-group-lg" role="group">
-                            <button type="submit" name="start" class="btn {if $serverinfo['virtualserver_status'] == "online"}btn-default disabled{else}btn-success{/if}">{$lang['start']}</button>
+                            <button type="submit" name="start" class="btn {if $serverinfo['virtualserver_status'] == "online"}btn-default disabled disableсlick{else}btn-success{/if}">{$lang['start']}</button>
                         </div>
                         <div class="btn-group btn-group-lg" role="group">
-                            <button type="submit" name="stop" class="btn {if $serverinfo['virtualserver_status'] != "online"}btn-default disabled{else}btn-danger{/if}" onclick="return confirm('{$lang['stopservermsg']}')">{$lang['stop']}</button>
+                            <button type="submit" name="stop" class="btn {if $serverinfo['virtualserver_status'] != "online"}btn-default disabled disableсlick{else}btn-danger{/if}" onclick="return confirm('{$lang['stopservermsg']}')">{$lang['stop']}</button>
                         </div>
                     </div>
                 </form>

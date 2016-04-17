@@ -20,6 +20,8 @@ $noerror='';
 $channellist=$ts3->channelList();
 $getallfiles=array();
 
+
+
 if(isset($_GET['deletefile']))
 	{
 	$delfiles[]=$_GET['path']=="/" ? "/".$_GET['name']:$_GET['path']."/".$_GET['name'];
@@ -145,7 +147,8 @@ if(isset($_GET['path']) AND $_GET['path']!="/" AND !empty($_GET['path']))
 	$newpath=implode("/", $splitpath);
 	empty($newpath) ? $newpath="/":'';
 	$newpath=="/" ? $cid='':'';
-	$newpath=urlencode($newpath); 
+	$newpath=urlencode($newpath);
+	$breadcumb_path=explode('/', $_GET['path'], 30);
 	} 
 	
 if(!empty($channellist))
@@ -186,6 +189,10 @@ if(isset($chaninfo))
 if(isset($newpath))
 	{
 	$smarty->assign("newpath", $newpath);
+	}
+if(isset($breadcumb_path))
+	{
+		$smarty->assign("breadcumb_path", $breadcumb_path);
 	}
 if(isset($cid))
 	{	

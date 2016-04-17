@@ -15,6 +15,10 @@
 if(!defined("SECURECHECK")) {die($lang['error_file_alone']);} 
 $error='';
 $noerror='';
+
+$geticons=1;
+include("site/filetransfer.php");
+
 if(isset($_POST['upload']))
 	{
 	$icon=@getimagesize($_FILES['thefile']['tmp_name']);
@@ -69,6 +73,7 @@ if($handler2)
 			}
 		}
 	}
+
 	
 $smarty->assign("port", $whoami['virtualserver_port']);
 $smarty->assign("allicons", $allicons);

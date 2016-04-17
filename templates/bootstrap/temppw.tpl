@@ -17,54 +17,6 @@
 	<div class="well-sm">
 		<h4>{$lang['temppw']}</h4>
 	</div>
-	<div class="row">
-		<div class="col-md-3">
-			<div class="panel panel-primary">
-				<div class="panel-heading">
-					<h3 class="panel-title">{$lang['create']} {$lang['temppw']}</h3>
-				</div>
-				<div class="panel-body">
-					<form method="post" action="index.php?site=temppw&amp;sid={$sid}" class="form-horizontal">
-						<div class="form-group">
-							<label for="password" class="col-sm-5 control-label">{$lang['password']}</label>
-							<div class="col-sm-6">
-								<input type="text" id="password" name="password" class="form-control" value="">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="duration" class="col-sm-5 control-label">{$lang['duration']}</label>
-							<div class="col-sm-6">
-								<div class="input-group">
-									<input type="text" id="duration" name="duration" class="form-control" value="" aria-describedby="duration-addon2">
-									<span class="input-group-addon" id="duration-addon2">{$lang['seconds']}</span>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="description" class="col-sm-5 control-label">{$lang['description']}</label>
-							<div class="col-sm-6">
-								<input type="text" id="description" name="description" class="form-control" value="">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="channel" class="col-sm-5 control-label">{$lang['channel']}</label>
-							<div class="col-sm-6">
-								<select id="channel" class="form-control" name="tcid">
-									<option value="0">{$lang['channelzero']}</option>
-									{foreach key=id item=channel from=$channellist}
-										<option value="{$channel.cid}">{$channel.channel_name}</option>
-									{/foreach}
-								</select>
-							</div>
-						</div>
-						<div class="col-sm-6 col-sm-offset-5">
-							<input class="btn btn-success btn-block btn-lg" type="submit" name="create" value="{$lang['create']}" />
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-9">
 			<div class="panel panel-primary">
 				<div class="panel-heading">{$lang['temppwlist']}</div>
 				<div class="table-responsive">
@@ -111,6 +63,59 @@
 					</table>
 				</div>
 			</div>
+			<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#passwcreate_modal">
+				{$lang['create']} {$lang['temppw']}
+			</button>
+</div>
+
+<!-- password creation modal -->
+<div class="modal fade" id="passwcreate_modal" tabindex="-1" role="dialog" aria-labelledby="passwcreate_modal_label">
+	<div class="modal-dialog" role="document">
+		<form method="post" action="index.php?site=temppw&amp;sid={$sid}" class="form-horizontal">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="passwcreate_modal_label">{$lang['create']} {$lang['temppw']}</h4>
+			</div>
+			<div class="modal-body">
+					<div class="form-group">
+						<label for="password" class="col-sm-3 control-label">{$lang['password']}</label>
+						<div class="col-sm-8">
+							<input type="text" id="password" name="password" class="form-control" value="">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="duration" class="col-sm-3 control-label">{$lang['duration']}</label>
+						<div class="col-sm-8">
+							<div class="input-group">
+								<input type="text" id="duration" name="duration" class="form-control" value="" aria-describedby="duration-addon2">
+								<span class="input-group-addon" id="duration-addon2">{$lang['seconds']}</span>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="description" class="col-sm-3 control-label">{$lang['description']}</label>
+						<div class="col-sm-8">
+							<input type="text" id="description" name="description" class="form-control" value="">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="channel" class="col-sm-3 control-label">{$lang['channel']}</label>
+						<div class="col-sm-8">
+							<select id="channel" class="form-control" name="tcid">
+								<option value="0">{$lang['channelzero']}</option>
+								{foreach key=id item=channel from=$channellist}
+									<option value="{$channel.cid}">{$channel.channel_name}</option>
+								{/foreach}
+							</select>
+						</div>
+					</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">{$lang['close']}</button>
+				<input class="btn btn-success" type="submit" name="create" value="{$lang['create']}" />
+			</div>
 		</div>
+		</form>
 	</div>
 </div>
